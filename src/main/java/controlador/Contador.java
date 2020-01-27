@@ -24,7 +24,7 @@ public class Contador {
     }
 
     public void setTotalLeche(int totalLeche) {
-        if (totalLeche <= 0) {
+        if (totalLeche > 0) {
             this.totalLeche += totalLeche;
         } else {
             throw new IllegalArgumentException(" El contador de leche no puede ser negativo o 0");
@@ -37,7 +37,7 @@ public class Contador {
     }
 
     public void setTotalCafe(int totalCafe) {
-        if (totalCafe <= 0) {
+        if (totalCafe > 0) {
             this.totalCafe += totalCafe;
         } else {
             throw new IllegalArgumentException(" El contador de Cafe no puede ser negativo o 0");
@@ -49,7 +49,7 @@ public class Contador {
     }
 
     public void setTotalCafeDescafeinado(int totalCafeDescafeinado) {
-        if (totalCafeDescafeinado <= 0) {
+        if (totalCafeDescafeinado > 0) {
             this.totalCafeDescafeinado += totalCafeDescafeinado;
         } else {
             throw new IllegalArgumentException(" El contador de Cafe descafeinado no puede ser negativo o 0");
@@ -61,7 +61,7 @@ public class Contador {
     }
 
     public void setTotalChocolate(int totalChocolate) {
-        if (totalChocolate <= 0) {
+        if (totalChocolate > 0) {
             this.totalChocolate += totalChocolate;
         } else {
             throw new IllegalArgumentException(" El contador de Cafe descafeinado no puede ser negativo o 0");
