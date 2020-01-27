@@ -59,10 +59,10 @@ public class Deposito {
     public void dispensarBebida(){
         //Teniendo en cuenta que cada bebida quita 40g de cada elemento
         if(this.capacidadActual < 40){
-            throw new IllegalAccessError("No se puede servir la bebida porque el depósito no tiene suficiente cantidad para ello");
+            throw new IllegalAccessError("No se puede servir la bebida porque el depósito no tiene suficiente cantidad para ello"); //Tira una excepción si no hay suficiente manteca para dispensar la bebida
         }
         else{
-            this.capacidadActual-=40;
+            this.capacidadActual-=40; //Resta del depósito los gramos a administrar
         }
     }
     
