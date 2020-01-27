@@ -41,7 +41,21 @@ public class Deposito {
         this.capacidadAviso = capacidadAviso;
     }
     
+    //Ceamos método rellenar cafetera
     
+    public void rellenarCafetera(int gramos){
+        gramos = Math.abs(gramos); //Hacemos el valor absoluto de los gramos, puesto que no podemos rellenar con valores nulos
+        
+        if(gramos > this.capacidadMaxima){
+            throw new IllegalArgumentException("No puedes rellenar una cafetera con más gramos que los que puede almacenar el depósito"); //Tira una excepción si nos pasamos llenando
+        }
+        else{
+            this.setCapacidadActual(capacidadActual+gramos);//Rellenamos la cafetera con el valor pasado por parámetros
+        }
+    }
+    public void rellenarCafetera(){
+        this.setCapacidadActual(this.capacidadMaxima);//Rellenamos la cafetera a tope
+    }
     
     //Métodos Getters y Setters
 
