@@ -10,5 +10,12 @@ package controlador;
  * @author carlos
  */
 public class Cafetera {
+    private Deposito cafe;
+    private Deposito cafeDescafeinado;
+    private Deposito leche;
+    private Deposito agua;
+    private Deposito chocolate;
+    
+    
     
 }
