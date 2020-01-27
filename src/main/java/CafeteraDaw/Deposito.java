@@ -50,11 +50,20 @@ public class Deposito {
             throw new IllegalArgumentException("No puedes rellenar una cafetera con más gramos que los que puede almacenar el depósito"); //Tira una excepción si nos pasamos llenando
         }
         else{
-            this.setCapacidadActual(capacidadActual+gramos);//Rellenamos la cafetera con el valor pasado por parámetros
+            this.setCapacidadActual(this.capacidadActual+gramos);//Rellenamos la cafetera con el valor pasado por parámetros
         }
     }
     public void rellenarCafetera(){
         this.setCapacidadActual(this.capacidadMaxima);//Rellenamos la cafetera a tope
+    }
+    public void dispensarBebida(){
+        //Teniendo en cuenta que cada bebida quita 40g de cada elemento
+        if(this.capacidadActual < 40){
+            throw new IllegalAccessError("No se puede servir la bebida porque el depósito no tiene suficiente cantidad para ello");
+        }
+        else{
+            this.capacidadActual-=40;
+        }
     }
     
     //Métodos Getters y Setters
