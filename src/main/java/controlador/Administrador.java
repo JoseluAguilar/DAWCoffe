@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CafeteraDaw;
+package controlador;
 
 /**
  *
  * @author joselu
  */
-public class Programa {
+public class Administrador {
     
 }
