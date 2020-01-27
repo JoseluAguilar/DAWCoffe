@@ -41,6 +41,8 @@ public class Deposito {
         this.capacidadAviso = capacidadAviso;
     }
     
+    
+    
     //Métodos Getters y Setters
 
     public int getCodDeposito() {
@@ -63,7 +65,7 @@ public class Deposito {
         return capacidadActual;
     }
 
-    public void setCapacidadActual(int capacidadActual) {
+    private void setCapacidadActual(int capacidadActual) {
         this.capacidadActual = capacidadActual;
     }
 
