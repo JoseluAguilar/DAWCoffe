@@ -15,7 +15,7 @@ public enum Bebida {
     CAFE_SOLO(1003, "Café solo", 0.8, false),
     SOLO_LARGO(1005, "Café solo largo", 0.9, false),
     CAFE_CON_LECHE(1007, "Café con leche", 1.1, false),
-    CORTADO(1009, "Café descafeinado", 1, false),
+    CORTADO(1009, "Café cortado", 1, false),
     CHOCOLATE(1011, "Chocolate caliente", 1.4, false),
     CAFE_SOLO_DES(1004, "Café solo descafeinado", 0.8, true),
     SOLO_LARGO_DES(1006, "Café largo descafeinado", 0.9, true),
