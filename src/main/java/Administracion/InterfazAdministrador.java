@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlador;
+package Administracion;
 
 /**
  *
- * @author joselu
+ * @author carlos
  */
-public class Administrador {
+public class InterfazAdministrador {
     
 }
