@@ -21,7 +21,7 @@ public enum Bebida {
     SOLO_LARGO_DES(1006, "Café largo descafeinado", 0.9, true),
     CAFE_CON_LECHE_DES(1008, "Café con leche descafeinado", 1.1, true),
     CORTADO_DES(1010, "Café cortado descafeinado", 1, true);
-    
+
     private int codigo;
     private String nombre;
     private double precio;
@@ -65,7 +65,5 @@ public enum Bebida {
     public void setDescafeinado(boolean descafeinado) {
         this.descafeinado = descafeinado;
     }
-    
-    
-    
+
 }

@@ -22,16 +22,15 @@ public class Cafetera {
 
     }
 
-    public boolean compraBebida(double precio, Bebida bebida){
-        if(precio == bebida.getPrecio()){
+    public boolean compraBebida(double precio, Bebida bebida) {
+        if (precio == bebida.getPrecio()) {
             this.dispensarBebida(bebida.getCodigo()); //Que dispense la bebida
             return true; //Si devuelve verdadero, entonces que no pregunte más y que se vaya al menú principal
-        }
-        else{
+        } else {
             return false; //Que siga preguntando hasta que, o el usuario meta el precio, o se salga
         }
     }
-    
+
     private void dispensarBebida(int codigo) {
         switch (codigo) {
             //Los Case son códigos que están en el enum de bebida
@@ -60,7 +59,6 @@ public class Cafetera {
     }
 
     //Métodos Get y Set
-    
     public Deposito getCafe() {
         return cafe;
     }

@@ -10,6 +10,7 @@ package controlador;
  * @author josel
  */
 public class Monedero {
+
     //Clase establecida para almacenar el dinero 
     //Cada vez que la maquina inicie, esta tendra 50€ de cambio
     //No se permitirá un importe introducido que no podamos devolver cambio
@@ -23,7 +24,5 @@ public class Monedero {
     public void setDinero(double dinero) {
         this.dinero = dinero;
     }
-    
-    
-    
+
 }
