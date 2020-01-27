@@ -10,15 +10,16 @@ package controlador;
  * @author joselu
  */
 public class Deposito {
+
     private int codDeposito;
     private String contenidoDeposito;
     private int capacidadActual;
     private int capacidadMaxima;
     private int capacidadAviso;
-    
+
     //Creamos constructor por defecto
-    public Deposito(){
-        
+    public Deposito() {
+
     }
 
     //Creamos un constructor parametrizado en el cual se indica la capacidad máxima y la capacidad de aviso es cuando llega a los 100g. 
@@ -31,7 +32,6 @@ public class Deposito {
         this.capacidadAviso = 100;
     }
 
-    
     //Se crea un constructor parametrizado en el cual puedes ajustar todos los parámetros del depósito
     public Deposito(int codDeposito, String contenidoDeposito, int capacidadActual, int capacidadMaxima, int capacidadAviso) {
         this.codDeposito = codDeposito;
@@ -40,34 +40,40 @@ public class Deposito {
         this.capacidadMaxima = capacidadMaxima;
         this.capacidadAviso = capacidadAviso;
     }
-    
+
     //Ceamos método rellenar cafetera
-    
-    public void rellenarCafetera(int gramos){
+    public void rellenarCafetera(int gramos) {
         gramos = Math.abs(gramos); //Hacemos el valor absoluto de los gramos, puesto que no podemos rellenar con valores nulos
-        
-        if(gramos > this.capacidadMaxima){
+
+        if (gramos > this.capacidadMaxima) {
             throw new IllegalArgumentException("No puedes rellenar una cafetera con más gramos que los que puede almacenar el depósito"); //Tira una excepción si nos pasamos llenando
-        }
-        else{
-            this.setCapacidadActual(this.capacidadActual+gramos);//Rellenamos la cafetera con el valor pasado por parámetros
+        } else {
+            this.setCapacidadActual(this.capacidadActual + gramos);//Rellenamos la cafetera con el valor pasado por parámetros
         }
     }
-    public void rellenarCafetera(){
+
+    public void rellenarCafetera() {
         this.setCapacidadActual(this.capacidadMaxima);//Rellenamos la cafetera a tope
     }
-    public void dispensarBebida(){
+
+    public void dispensarBebida() {
         //Teniendo en cuenta que cada bebida quita 40g de cada elemento
-        if(this.capacidadActual < 40){
+        if (this.capacidadActual < 40) {
             throw new IllegalAccessError("No se puede servir la bebida porque el depósito no tiene suficiente cantidad para ello"); //Tira una excepción si no hay suficiente manteca para dispensar la bebida
-        }
-        else{
-            this.capacidadActual-=40; //Resta del depósito los gramos a administrar
+        } else {
+            this.capacidadActual -= 40; //Resta del depósito los gramos a administrar
         }
     }
-    
-    //Métodos Getters y Setters
 
+    public void dispensarBebida(int gramos) {
+        if (this.capacidadActual < gramos) {
+            throw new IllegalAccessError("No se puede servir la bebida porque el depósito no tiene suficiente cantidad para ello"); //Tira una excepción si no hay suficiente manteca para dispensar la bebida
+        } else {
+            this.capacidadActual -= gramos; //Resta del depósito los gramos a administrar
+        }
+    }
+
+    //Métodos Getters y Setters
     public int getCodDeposito() {
         return codDeposito;
     }
@@ -107,16 +113,12 @@ public class Deposito {
     public void setCapacidadAviso(int capacidadAviso) {
         this.capacidadAviso = capacidadAviso;
     }
-    
-    //Método toString
 
+    //Método toString
     @Override
     public String toString() {
-        return ("El depósito con identificador " + this.codDeposito + ", que contiene " + this.contenidoDeposito + ", con capacidad máxima " 
+        return ("El depósito con identificador " + this.codDeposito + ", que contiene " + this.contenidoDeposito + ", con capacidad máxima "
                 + this.capacidadMaxima + ", dispone de " + this.capacidadActual + "g de " + this.contenidoDeposito);
     }
-    
-    
-    
-    
+
 }
