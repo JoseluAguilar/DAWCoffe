@@ -10,5 +10,5 @@ package Administracion;
  * @author carlos
  */
 public class InterfazAdministrador {
-
+    
 }

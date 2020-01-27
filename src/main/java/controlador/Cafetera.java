@@ -16,10 +16,13 @@ public class Cafetera {
     private Deposito leche = new Deposito(1003, "leche", 1000, 0, 100);
     private Deposito agua = new Deposito(1004, "agua", 1000, 0, 100);
     private Deposito chocolate = new Deposito(1005, "chocholate", 1000, 0, 100);
-
+       
+    //Creación de un objeto de contador
+    Contador contador = new Contador();
+    
     //Creamos constructor por defecto
     public Cafetera() {
-
+        
     }
 
     public boolean compraBebida(double precio, Bebida bebida) {
@@ -37,6 +40,10 @@ public class Cafetera {
             case 1001:
             case 1002:
                 leche.dispensarBebida();
+                //Implementación de que cada vez que dispensemos una bebida
+                //El contador aumenta
+                //Hay que controlar también que tengamos suficiente cantidad
+                contador.setTotalLeche(contador.getTotalLeche()+ 1);
             case 1003:
             case 1005:
             case 1009:
