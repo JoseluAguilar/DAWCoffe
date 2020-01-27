@@ -22,7 +22,12 @@ public class Monedero {
     }
 
     public void setDinero(double dinero) {
-        this.dinero = dinero;
+        if (dinero > 0) {
+            this.dinero = dinero;
+        } else {
+            throw new IllegalArgumentException(" No se puede introducir al monedero ninguna cantidad negativa ");
+        }
+
     }
 
 }
