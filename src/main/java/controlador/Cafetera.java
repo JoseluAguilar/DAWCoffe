@@ -10,11 +10,15 @@ package controlador;
  * @author carlos
  */
 public class Cafetera {
-    private Deposito cafe;
-    private Deposito cafeDescafeinado;
-    private Deposito leche;
-    private Deposito agua;
-    private Deposito chocolate;
+    private Deposito cafe = new Deposito(1001, "Café", 1000, 0, 100);
+    private Deposito cafeDescafeinado = new Deposito(1002, "Café descafeinado", 1000, 0, 100);
+    private Deposito leche = new Deposito(1003, "leche", 1000, 0, 100);
+    private Deposito agua = new Deposito(1004, "agua", 1000, 0, 100);
+    private Deposito chocolate = new Deposito(1005, "chocholate", 1000, 0, 100);
+    
+    public Cafetera(){
+        
+    }
     
     
     
