@@ -5,8 +5,7 @@
  */
 package vista;
 
-import controlador.Bebida;
-import controlador.Cafetera;
+import controlador.*;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -21,12 +20,14 @@ public class Interfaz {
 
     private static int[] valoresBebida = new int[11];
 
-    public static int menuRaiz() {
+    public static void menuRaiz() {
         //Este método, que tendremos que rellenar más adelante, lo usamos para preguntar la bebida a tomar
         
         Scanner lector = new Scanner(System.in);
         int seleccion;
         boolean existe = false;
+        double dinero = 0;
+        Bebida seleccionada = null;
         cargarBebidas();
         do {
             System.out.println("Introduce la bebida que quieres tomar: ");
@@ -43,8 +44,52 @@ public class Interfaz {
                 System.out.println("El número introducido no pertenece a ninguna bebida, por favor, introduce otro");
             }
         } while (!(existe));
-        return seleccion;
+        switch(seleccion){
+            case 1001:
+                seleccionada = Bebida.LECHE_FRIA;
+                break;
+            case 1002:
+                seleccionada = Bebida.LECHE_CALIENTE;
+                break;
+            case 1003:
+                seleccionada = Bebida.CAFE_SOLO;
+                break;
+            case 1004:
+                seleccionada = Bebida.CAFE_SOLO_DES;
+                break;
+            case 1005:
+                seleccionada = Bebida.SOLO_LARGO;
+                break;
+            case 1006:
+                seleccionada = Bebida.SOLO_LARGO_DES;
+                break;
+            case 1007:
+                seleccionada = Bebida.CAFE_CON_LECHE;
+                break;
+            case 1008:
+                seleccionada = Bebida.CAFE_CON_LECHE_DES;
+                break;
+            case 1009:
+                seleccionada = Bebida.CORTADO;
+                break;
+            case 1010:
+                seleccionada = Bebida.CORTADO_DES;
+                break;
+            case 1011:
+                seleccionada = Bebida.CHOCOLATE;
+                break;
+        }
+        do{
+            System.out.println("La bebida " + seleccionada.getNombre() + " cuesta " + seleccionada.getPrecio()+"€");
+            System.out.println("Has pagado " + dinero + "€ por ahora");
+            System.out.print("Introduzca su dinero: ");
+            dinero += lector.nextDouble();
+        }while(!(cafe.compraBebida(dinero, seleccionada)));
 
+        if(dinero > seleccionada.getPrecio()){
+            System.out.println("Tome sus " + (dinero - seleccionada.getPrecio()) + "€ de cambio");
+        }
+        System.out.println("Preparando su " + seleccionada.getNombre() +"...");
     }
 
     public static void cargarBebidas() {
