@@ -26,7 +26,7 @@ public class Cafetera {
     }
     
     public boolean compraBebida(double precio, Bebida bebida) {
-        if (precio == bebida.getPrecio()) {
+        if (precio >= bebida.getPrecio()) {
             this.dispensarBebida(bebida.getCodigo()); //Que dispense la bebida
             return true; //Si devuelve verdadero, entonces que no pregunte más y que se vaya al menú principal
         } else {
