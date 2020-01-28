@@ -7,6 +7,7 @@ package vista;
 
 import controlador.Bebida;
 import controlador.Cafetera;
+import java.util.Random;
 import java.util.Scanner;
 import static vista.Programa.valoresBebida;
 
@@ -17,6 +18,7 @@ import static vista.Programa.valoresBebida;
 public class Interfaz {
     private static Cafetera cafe = new Cafetera();
     public static void menuPrincipal(){
+        
         System.out.println("Bienvenido a la cafetera, por Jose Luís y Carlos");
         int seleccionMenu;
         cargarBebidas();
@@ -24,7 +26,11 @@ public class Interfaz {
             //TODO tenemos que poner aquí los códigos de bebida, así como poner el precio. Podemos hacerlo con un 
             //toString en la clase Bebida
             seleccionMenu = menuRaiz(); //Esto lo arreglaremos más adelante, lo dejamos así por ahora
-            cafe.dispensarBebida(seleccionMenu);
+            
+            if(seleccionMenu == 99999){
+                inicioSesion();
+                
+            }
         }
     }
     public static int menuRaiz() {
@@ -64,5 +70,24 @@ public class Interfaz {
             }
         }
         return false;
+    }
+    public static boolean inicioSesion(){
+        //Creamos un método de inicio de sesión, en el cual, si se cumplen las condiciones del método, devolverá true y por tanto, podremos administrar la cafetera
+        Random r = new Random();
+        Scanner lector = new Scanner(System.in);
+        int key;
+        int code;
+        System.out.println("Bienvenido a la consola de administración.");
+        System.out.print("Introduzca el pendrive de administrador, e introduzca el código que verá a continuación: "); 
+        key = r.nextInt(9999)+1;//Generamos un código
+        System.out.printf("%04d",key); //Mostramos el código
+        System.out.print(">");
+        code = lector.nextInt();//Pedimos que el usuario introduzca un número, en este caso, que sea igual al código
+        if(code == key){
+            return true; //Si el código coincide, devolverá verdadero. Podremos continuar con el inicio de sesión
+        }
+        else{
+            return false; //Si no, devolverá falso
+        }
     }
 }
