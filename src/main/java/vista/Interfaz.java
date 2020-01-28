@@ -9,7 +9,7 @@ import controlador.Bebida;
 import controlador.Cafetera;
 import java.util.Random;
 import java.util.Scanner;
-import static vista.Programa.valoresBebida;
+
 
 /**
  *
@@ -19,19 +19,21 @@ public class Interfaz {
 
     private static Cafetera cafe = new Cafetera();
 
- 
+    private static int[] valoresBebida = new int[11];
 
     public static int menuRaiz() {
         //Este método, que tendremos que rellenar más adelante, lo usamos para preguntar la bebida a tomar
+        
         Scanner lector = new Scanner(System.in);
         int seleccion;
         boolean existe = false;
+        cargarBebidas();
         do {
             System.out.println("Introduce la bebida que quieres tomar: ");
             seleccion = lector.nextInt();
             if (seleccion == 99999) {
                 inicioSesion();
-
+                continue; //Esto provoca que cuando salga de la consola de administración, no saque por pantalla que la bebida no existe
             }
             //Preguntamos si el código de bebida existe. Si existe, lo devolverá para operar con él
             //en el método main
@@ -74,7 +76,7 @@ public class Interfaz {
         System.out.print("Introduzca el pendrive de administrador, e introduzca el código que verá a continuación: ");
         key = r.nextInt(9999) + 1;//Generamos un código
         System.out.printf("%04d", key); //Mostramos el código
-        System.out.print(">");
+        System.out.print("\n>");
         code = lector.nextInt();//Pedimos que el usuario introduzca un número, en este caso, que sea igual al código
         if (code == key) {
             return true; //Si el código coincide, devolverá verdadero. Podremos continuar con el inicio de sesión
