@@ -19,7 +19,7 @@ public class Programa {
 
     //Considerando esto, las clases programa e interfaz deben estar en un paquete vista, 
     //mientras que el resto de clases, en un paquete controlador
-    private static int[] valoresBebida = new int[11];
+    public static int[] valoresBebida = new int[11];
 
     public static void main(String[] args) {
         System.out.println("Bienvenido a la cafetera, por Jose Luís y Carlos");
