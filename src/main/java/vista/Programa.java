@@ -5,6 +5,8 @@
  */
 package vista;
 
+import java.util.Scanner;
+
 /**
  *
  * @author joselu
@@ -16,6 +18,15 @@ public class Programa {
     //Considerando esto, las clases programa e interfaz deben estar en un paquete vista, 
     //mientras que el resto de clases, en un paquete controlador
     public static void main(String[] args) {
-
+        System.out.println("Bienvenido a la cafetera, por Jose Luís y Carlos");
+        while(true){
+            menuRaiz();
+        }
+        
+    }
+    public static int menuRaiz(){
+        Scanner lector = new Scanner(System.in);
+        System.out.println("Introduce la bebida que quieres tomar: ");
+        return lector.nextInt();
     }
 }
