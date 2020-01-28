@@ -9,7 +9,6 @@ import controlador.*;
 import java.util.Random;
 import java.util.Scanner;
 
-
 /**
  *
  * @author joselu
@@ -22,7 +21,7 @@ public class Interfaz {
 
     public static void menuRaiz() {
         //Este método, que tendremos que rellenar más adelante, lo usamos para preguntar la bebida a tomar
-        
+
         Scanner lector = new Scanner(System.in);
         int seleccion;
         boolean existe = false;
@@ -44,7 +43,7 @@ public class Interfaz {
                 System.out.println("El número introducido no pertenece a ninguna bebida, por favor, introduce otro");
             }
         } while (!(existe));
-        switch(seleccion){
+        switch (seleccion) {
             case 1001:
                 seleccionada = Bebida.LECHE_FRIA;
                 break;
@@ -79,17 +78,32 @@ public class Interfaz {
                 seleccionada = Bebida.CHOCOLATE;
                 break;
         }
-        do{
-            System.out.println("La bebida " + seleccionada.getNombre() + " cuesta " + seleccionada.getPrecio()+"€");
+        do {
+            System.out.println("La bebida " + seleccionada.getNombre() + " cuesta " + seleccionada.getPrecio() + "€");
             System.out.println("Has pagado " + dinero + "€ por ahora");
             System.out.print("Introduzca su dinero: ");
             dinero += lector.nextDouble();
-        }while(!(cafe.compraBebida(dinero, seleccionada)));
+        } while (!(cafe.compraBebida(dinero, seleccionada)));
 
-        if(dinero > seleccionada.getPrecio()){
+        if (dinero > seleccionada.getPrecio()) {
             System.out.println("Tome sus " + (dinero - seleccionada.getPrecio()) + "€ de cambio");
         }
-        System.out.println("Preparando su " + seleccionada.getNombre() +"...");
+        System.out.println("Preparando su " + seleccionada.getNombre() + "...");
+        delay();
+
+    }
+
+    public static void delay() {
+        try {
+            System.out.print("*-");
+            for (int i = 8; i > 0; i--) {
+                System.out.print("*-");
+                Thread.sleep(1000);
+            }
+            System.out.println("");//Añade un salto de línea
+        } catch (InterruptedException ie) {
+            System.out.println("Gracias por su compra, vuelva pronto");
+        }
     }
 
     public static void cargarBebidas() {
