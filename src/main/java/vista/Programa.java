@@ -6,7 +6,6 @@
 package vista;
 
 import java.util.Scanner;
-import java.util.Arrays;
 import controlador.*;
 
 /**
