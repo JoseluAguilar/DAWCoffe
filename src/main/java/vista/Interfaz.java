@@ -10,5 +10,5 @@ package vista;
  * @author joselu
  */
 public class Interfaz {
-
+    
 }
