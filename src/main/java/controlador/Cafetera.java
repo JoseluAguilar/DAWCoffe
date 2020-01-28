@@ -24,7 +24,7 @@ public class Cafetera {
     public Cafetera() {
         
     }
-
+    
     public boolean compraBebida(double precio, Bebida bebida) {
         if (precio == bebida.getPrecio()) {
             this.dispensarBebida(bebida.getCodigo()); //Que dispense la bebida
@@ -113,4 +113,13 @@ public class Cafetera {
     public void setChocolate(Deposito chocolate) {
         this.chocolate = chocolate;
     }
+
+    public Contador getContador() {
+        return contador;
+    }
+
+    public void setContador(Contador contador) {
+        this.contador = contador;
+    }
+    
 }
