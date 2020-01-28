@@ -90,12 +90,13 @@ public class Interfaz {
         }
         System.out.println("Preparando su " + seleccionada.getNombre() + "...");
         delay();
+        System.out.println("¡Gracias por su compra! Vuelva pronto\n");
 
     }
 
     public static void delay() {
         try {
-            System.out.print("*-");
+            System.out.print("-*-");
             for (int i = 8; i > 0; i--) {
                 System.out.print("*-");
                 Thread.sleep(1000);
