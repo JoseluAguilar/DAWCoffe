@@ -44,24 +44,32 @@ public class Cafetera {
                 //El contador aumenta
                 //Hay que controlar también que tengamos suficiente cantidad
                 contador.setTotalLeche(contador.getTotalLeche()+ 1);
+                break;
             case 1003:
             case 1005:
             case 1009:
                 agua.dispensarBebida();
                 cafe.dispensarBebida();
+                break;
             case 1004:
             case 1006:
             case 1010:
                 cafeDescafeinado.dispensarBebida();
                 agua.dispensarBebida();
+                break;
             case 1007:
                 agua.dispensarBebida();
                 cafe.dispensarBebida(20); //Al ser la mitad de lo que un café tiene por defecto
                 leche.dispensarBebida(20);
+                break;
             case 1008:
                 agua.dispensarBebida();
                 cafeDescafeinado.dispensarBebida(20); //Al ser la mitad de lo que un café tiene por defecto
                 leche.dispensarBebida(20);
+                break;
+            default:
+                throw new IllegalArgumentException("La bebida seleccionada no existe"); //Lanza una excepción para controlar
+                //Que la bebida seleccionada no existe
         }
     }
 
