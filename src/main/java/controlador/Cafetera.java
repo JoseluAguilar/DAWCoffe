@@ -11,11 +11,11 @@ package controlador;
  */
 public class Cafetera {
 
-    private Deposito cafe = new Deposito(1001, "Café", 1000, 0, 100);
-    private Deposito cafeDescafeinado = new Deposito(1002, "Café descafeinado", 1000, 0, 100);
-    private Deposito leche = new Deposito(1003, "leche", 1000, 0, 100);
-    private Deposito agua = new Deposito(1004, "agua", 1000, 0, 100);
-    private Deposito chocolate = new Deposito(1005, "chocholate", 1000, 0, 100);
+    private static Deposito cafe = new Deposito(1001, "Café", 1000, 0, 100);
+    private static Deposito cafeDescafeinado = new Deposito(1002, "Café descafeinado", 1000, 0, 100);
+    private static Deposito leche = new Deposito(1003, "leche", 1000, 0, 100);
+    private static Deposito agua = new Deposito(1004, "agua", 1000, 0, 100);
+    private static Deposito chocolate = new Deposito(1005, "chocholate", 1000, 0, 100);
        
     //Creación de un objeto de contador
     Contador contador = new Contador();
@@ -74,7 +74,7 @@ public class Cafetera {
     }
 
     //Métodos Get y Set
-    public Deposito getCafe() {
+    public static Deposito getCafe() {
         return cafe;
     }
 
@@ -82,7 +82,7 @@ public class Cafetera {
         this.cafe = cafe;
     }
 
-    public Deposito getCafeDescafeinado() {
+    public static Deposito getCafeDescafeinado() {
         return cafeDescafeinado;
     }
 
@@ -90,7 +90,7 @@ public class Cafetera {
         this.cafeDescafeinado = cafeDescafeinado;
     }
 
-    public Deposito getLeche() {
+    public static Deposito getLeche() {
         return leche;
     }
 
@@ -98,7 +98,7 @@ public class Cafetera {
         this.leche = leche;
     }
 
-    public Deposito getAgua() {
+    public static Deposito getAgua() {
         return agua;
     }
 
@@ -106,7 +106,7 @@ public class Cafetera {
         this.agua = agua;
     }
 
-    public Deposito getChocolate() {
+    public static Deposito getChocolate() {
         return chocolate;
     }
 
