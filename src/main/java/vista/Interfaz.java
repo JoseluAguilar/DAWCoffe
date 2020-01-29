@@ -106,10 +106,15 @@ public class Interfaz {
 
     public static int azucar() {
         Scanner lector = new Scanner(System.in);
-        System.out.println("0. Sin azúcar");
-        System.out.println("1. Un poco de azúcar");
-        System.out.println("2. Mucho azúcar");
-        System.out.print("¿Cuánto azucar deseas en tu bebida?: ");
+        try {
+            System.out.println("0. Sin azúcar");
+            System.out.println("1. Un poco de azúcar");
+            System.out.println("2. Mucho azúcar");
+            System.out.print("¿Cuánto azucar deseas en tu bebida?: ");
+
+        } catch (InputMismatchException ime) {
+
+        }
         return lector.nextInt();
     }
 
