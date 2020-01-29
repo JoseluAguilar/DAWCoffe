@@ -20,4 +20,28 @@ public class InterfazAdministrador {
     private Deposito agua = Cafetera.getAgua();
     private Deposito chocolate = Cafetera.getChocolate();
     
+    private int contadorCafe = Cafetera.getTotalCafe();
+    private int contadorCafeConLeche = Cafetera.getTotalCafeConLeche();
+    private int contadorCafeDescafeinado = Cafetera.getTotalCafeDescafeinado();
+    private int contadorCafeDescafeinadoConLeche = Cafetera.getTotalCafeDescafeinadoConLeche();
+    private int contadorChocolate = Cafetera.getTotalChocolate();
+    private int contadorLeche = Cafetera.getTotalLeche();
+    
+    public String contadores(){
+       
+        
+        return ("Se han servido: \n"
+                + "" + contadorCafe + " cafés\n"
+                + "" + contadorCafeConLeche + " cafés con leche\n"
+                + "" + contadorCafeDescafeinado + " cafés descafeinados\n"
+                + "" + contadorCafeDescafeinadoConLeche + " cafés descafeinados con leche\n"
+                + "" + contadorLeche + " leches\n"
+                + "" + contadorChocolate + " chocolates");
+    }
+    
+    
+    public void Apagar(){
+        System.exit(0);
+    }
+    
 }
