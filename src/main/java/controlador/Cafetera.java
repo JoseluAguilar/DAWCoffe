@@ -16,19 +16,67 @@ public class Cafetera {
     private static Deposito leche = new Deposito(1003, "leche", 1000, 0, 100);
     private static Deposito agua = new Deposito(1004, "agua", 1000, 0, 100);
     private static Deposito chocolate = new Deposito(1005, "chocholate", 1000, 0, 100);
-    
+
     private static int totalCafe = 0;
     private static int totalCafeDescafeinado = 0;
     private static int totalLeche = 0;
     private static int totalChocolate = 0;
-       
-    
-    
+    private static int totalCafeConLeche = 0;
+    private static int totalCafeDescafeinadoConLeche = 0;
+
+    public static int getTotalCafe() {
+        return totalCafe;
+    }
+
+    public static void setTotalCafe(int aTotalCafe) {
+        totalCafe = aTotalCafe;
+    }
+
+    public static int getTotalCafeDescafeinado() {
+        return totalCafeDescafeinado;
+    }
+
+    public static void setTotalCafeDescafeinado(int aTotalCafeDescafeinado) {
+        totalCafeDescafeinado = aTotalCafeDescafeinado;
+    }
+
+    public static int getTotalLeche() {
+        return totalLeche;
+    }
+
+    public static void setTotalLeche(int aTotalLeche) {
+        totalLeche = aTotalLeche;
+    }
+
+    public static int getTotalChocolate() {
+        return totalChocolate;
+    }
+
+    public static void setTotalChocolate(int aTotalChocolate) {
+        totalChocolate = aTotalChocolate;
+    }
+
+    public static int getTotalCafeConLeche() {
+        return totalCafeConLeche;
+    }
+
+    public static void setTotalCafeConLeche(int aTotalCafeConLeche) {
+        totalCafeConLeche = aTotalCafeConLeche;
+    }
+
+    public static int getTotalCafeDescafeinadoConLeche() {
+        return totalCafeDescafeinadoConLeche;
+    }
+
+    public static void setTotalCafeDescafeinadoConLeche(int aTotalCafeDescafeinadoConLeche) {
+        totalCafeDescafeinadoConLeche = aTotalCafeDescafeinadoConLeche;
+    }
+
     //Creamos constructor por defecto
     public Cafetera() {
-        
+
     }
-    
+
     public boolean compraBebida(double precio, Bebida bebida) {
         if (precio >= bebida.getPrecio()) {
             this.dispensarBebida(bebida.getCodigo()); //Que dispense la bebida
@@ -47,33 +95,43 @@ public class Cafetera {
                 //Implementación de que cada vez que dispensemos una bebida
                 //El contador aumenta
                 //Hay que controlar también que tengamos suficiente cantidad
-                
+                totalLeche++;
                 break;
             case 1003:
             case 1005:
             case 1009:
                 agua.dispensarBebida();
                 cafe.dispensarBebida();
+                totalCafe++;
                 break;
             case 1004:
             case 1006:
             case 1010:
                 cafeDescafeinado.dispensarBebida();
                 agua.dispensarBebida();
+                totalCafeDescafeinado++;
                 break;
             case 1007:
                 agua.dispensarBebida();
                 cafe.dispensarBebida(20); //Al ser la mitad de lo que un café tiene por defecto
                 leche.dispensarBebida(20);
+                totalCafeConLeche++;
+                
                 break;
             case 1008:
                 agua.dispensarBebida();
                 cafeDescafeinado.dispensarBebida(20); //Al ser la mitad de lo que un café tiene por defecto
                 leche.dispensarBebida(20);
+                totalCafeDescafeinadoConLeche++;
                 break;
+                
+            case 1011:
+                agua.dispensarBebida();
+                chocolate.dispensarBebida();
+                totalChocolate++;
             default:
                 throw new IllegalArgumentException("La bebida seleccionada no existe"); //Lanza una excepción para controlar
-                //Que la bebida seleccionada no existe
+            //Que la bebida seleccionada no existe
         }
     }
 
@@ -117,13 +175,6 @@ public class Cafetera {
     public void setChocolate(Deposito chocolate) {
         this.chocolate = chocolate;
     }
-
-    public Contador getContador() {
-        return contador;
-    }
-
-    public void setContador(Contador contador) {
-        this.contador = contador;
-    }
+    
     
 }
