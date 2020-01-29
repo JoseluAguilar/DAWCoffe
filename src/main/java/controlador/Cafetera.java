@@ -73,6 +73,14 @@ public class Cafetera {
         totalCafeDescafeinadoConLeche = aTotalCafeDescafeinadoConLeche;
     }
 
+    public static Deposito getAzucar() {
+        return azucar;
+    }
+
+    public static void setAzucar(Deposito aAzucar) {
+        azucar = aAzucar;
+    }
+
     //Creamos constructor por defecto
     public Cafetera() {
 
