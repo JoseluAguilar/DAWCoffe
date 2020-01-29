@@ -31,8 +31,9 @@ public class Interfaz {
         double dinero = 0;
         Bebida seleccionada = null;
         cargarBebidas();
-        do {
-            try {
+        try {
+            do {
+
                 System.out.print("Introduce la bebida que quieres tomar: ");
                 seleccion = lector.nextInt();
 
@@ -48,12 +49,14 @@ public class Interfaz {
                     existe = true;
                 } else {
                     System.out.println("El número introducido no pertenece a ninguna bebida, por favor, introduce otro");
+                    
                 }
-            } catch (InputMismatchException ime) {
 
-            }
-
-        } while (!(existe));
+            } while (!(existe));
+        } catch (InputMismatchException ime) {
+            System.out.println("Ha introducido algo que mi sistema no es capaz de gestionar pi pi pi ");
+            menuRaiz();
+        }
         switch (seleccion) {
             case 1001:
                 seleccionada = Bebida.LECHE_FRIA;
@@ -110,16 +113,18 @@ public class Interfaz {
 
     public static int azucar() {
         Scanner lector = new Scanner(System.in);
+        int seleccion = 0;
         try {
             System.out.println("0. Sin azúcar");
             System.out.println("1. Un poco de azúcar");
             System.out.println("2. Mucho azúcar");
             System.out.print("¿Cuánto azucar deseas en tu bebida?: ");
-
+            return lector.nextInt();
         } catch (InputMismatchException ime) {
-
+            System.out.println("Introduce una cantidad de azucar correcta");
+            azucar();
         }
-        return lector.nextInt();
+        return 0;
     }
 
     public static void consolaAdministrador() {
