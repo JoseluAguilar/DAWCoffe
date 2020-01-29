@@ -11,8 +11,9 @@ package Administracion;
  */
 import controlador.Cafetera;
 import controlador.Deposito;
+
 public class InterfazAdministrador {
-    
+
     //Aquí vamos a hacer unos cuanto métodos que necesitamos de Administrador
     private Deposito cafe = Cafetera.getCafe();
     private Deposito cafeDescafeinado = Cafetera.getCafeDescafeinado();
@@ -20,18 +21,16 @@ public class InterfazAdministrador {
     private Deposito agua = Cafetera.getAgua();
     private Deposito chocolate = Cafetera.getChocolate();
     private Deposito azucar = Cafetera.getAzucar();
-    
+
     private int contadorCafe = Cafetera.getTotalCafe();
     private int contadorCafeConLeche = Cafetera.getTotalCafeConLeche();
     private int contadorCafeDescafeinado = Cafetera.getTotalCafeDescafeinado();
     private int contadorCafeDescafeinadoConLeche = Cafetera.getTotalCafeDescafeinadoConLeche();
     private int contadorChocolate = Cafetera.getTotalChocolate();
     private int contadorLeche = Cafetera.getTotalLeche();
-    
-    
-    public String contadores(){
-       
-        
+
+    public String contadores() {
+
         return ("Se han servido: \n"
                 + "" + contadorCafe + " cafés\n"
                 + "" + contadorCafeConLeche + " cafés con leche\n"
@@ -40,13 +39,12 @@ public class InterfazAdministrador {
                 + "" + contadorLeche + " leches\n"
                 + "" + contadorChocolate + " chocolates");
     }
-    
-    
-    public void apagar(){
+
+    public void apagar() {
         System.exit(0);
     }
-    
-    public void rellenarTodosDepositos(){
+
+    public void rellenarTodosDepositos() {
         cafe.rellenarCafetera();
         cafeDescafeinado.rellenarCafetera();
         leche.rellenarCafetera();
@@ -54,15 +52,15 @@ public class InterfazAdministrador {
         agua.rellenarCafetera();
         azucar.rellenarCafetera();
     }
-    
-    public String revisar(){
+
+    public String revisar() {
         return ("El estado actual de los despositos es : \n"
-                + "" + cafe.toString()+ "\n"
+                + "" + cafe.toString() + "\n"
                 + "" + cafeDescafeinado.toString() + "\n"
                 + "" + leche.toString() + "\n"
                 + "" + chocolate.toString() + " \n"
                 + "" + agua.toString() + " \n"
                 + "" + azucar.toString());
     }
-    
+
 }

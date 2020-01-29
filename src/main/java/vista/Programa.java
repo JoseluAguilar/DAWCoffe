@@ -5,24 +5,19 @@
  */
 package vista;
 
-
 /**
  *
  * @author joselu
  */
 public class Programa {
-    //Según el modelo Vista / Controlador, debemos tener algunas clases para la vista, 
-    //y otras para la lógica del programa. 
+    //Según el modelo Vista / Con100programa. 
 
     //Considerando esto, las clases programa e interfaz deben estar en un paquete vista, 
     //mientras que el resto de clases, en un paquete controlador
-
     public static void main(String[] args) {
-        while(true){
+        while (true) {
             Interfaz.menuRaiz();
         }
 
     }
-
-    
 }

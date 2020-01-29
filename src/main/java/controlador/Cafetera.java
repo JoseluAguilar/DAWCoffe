@@ -13,12 +13,12 @@ import vista.Interfaz;
  */
 public class Cafetera {
 
-    private static Deposito cafe = new Deposito(1001, "Café", 1000, 0, 100);
-    private static Deposito cafeDescafeinado = new Deposito(1002, "Café descafeinado", 1000, 0, 100);
-    private static Deposito leche = new Deposito(1003, "leche", 1000, 0, 100);
-    private static Deposito agua = new Deposito(1004, "agua", 1000, 0, 100);
-    private static Deposito chocolate = new Deposito(1005, "chocholate", 1000, 0, 100);
-    private static Deposito azucar = new Deposito(0, "azucar", 100, 0, 100);
+    private static Deposito cafe = new Deposito(1001, "Café", 1000, 1000, 100);
+    private static Deposito cafeDescafeinado = new Deposito(1002, "Café descafeinado", 1000, 1000, 100);
+    private static Deposito leche = new Deposito(1003, "leche", 1000, 1000, 100);
+    private static Deposito agua = new Deposito(1004, "agua", 1000, 1000, 100);
+    private static Deposito chocolate = new Deposito(1005, "chocholate", 1000, 1000, 100);
+    private static Deposito azucar = new Deposito(0, "azucar", 1000, 1000, 100);
 
     private static int totalCafe = 0;
     private static int totalCafeDescafeinado = 0;
@@ -128,7 +128,7 @@ public class Cafetera {
                 cafe.dispensarBebida(20); //Al ser la mitad de lo que un café tiene por defecto
                 leche.dispensarBebida(20);
                 totalCafeConLeche++;
-                
+
                 break;
             case 1008:
                 agua.dispensarBebida();
@@ -136,7 +136,7 @@ public class Cafetera {
                 leche.dispensarBebida(20);
                 totalCafeDescafeinadoConLeche++;
                 break;
-                
+
             case 1011:
                 agua.dispensarBebida();
                 chocolate.dispensarBebida();
@@ -146,13 +146,14 @@ public class Cafetera {
                 throw new IllegalArgumentException("La bebida seleccionada no existe"); //Lanza una excepción para controlar
             //Que la bebida seleccionada no existe
         }
-        
+
     }
-    
-    public void dispensarAzucar(int seleccion){
+
+    public void dispensarAzucar(int seleccion) {
         //Dependiendo de la selección, se quita ese número de gramos
         azucar.dispensarBebida(seleccion);
     }
+
     //Métodos Get y Set
     public static Deposito getCafe() {
         return cafe;
@@ -193,6 +194,5 @@ public class Cafetera {
     public void setChocolate(Deposito chocolate) {
         this.chocolate = chocolate;
     }
-    
-    
+
 }
