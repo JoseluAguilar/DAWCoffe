@@ -19,5 +19,5 @@ public class InterfazAdministrador {
     private Deposito leche = Cafetera.getLeche();
     private Deposito agua = Cafetera.getAgua();
     private Deposito chocolate = Cafetera.getChocolate();
-
+    
 }
