@@ -6,6 +6,7 @@
 package vista;
 
 import controlador.*;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -23,16 +24,19 @@ public class Interfaz {
         //Este método, que tendremos que rellenar más adelante, lo usamos para preguntar la bebida a tomar
 
         Scanner lector = new Scanner(System.in);
-        int seleccion;
+        int seleccion = 0;
         boolean existe = false;
         double dinero = 0;
         Bebida seleccionada = null;
         cargarBebidas();
         do {
-            System.out.println("Introduce la bebida que quieres tomar: ");
+
+            System.out.print("Introduce la bebida que quieres tomar: ");
             seleccion = lector.nextInt();
+
             if (seleccion == 99999) {
-                inicioSesion();
+                inicioSesion(); //Esto devuelve un boolean, tenemos que hacer una comparación, y si devuelve true,
+                //Si devuelve true, que se vaya a las opciones de administración, si no, que pida de nuevo la bebida
                 continue; //Esto provoca que cuando salga de la consola de administración, no saque por pantalla que la bebida no existe
             }
             //Preguntamos si el código de bebida existe. Si existe, lo devolverá para operar con él
@@ -77,6 +81,7 @@ public class Interfaz {
             case 1011:
                 seleccionada = Bebida.CHOCOLATE;
                 break;
+
         }
         do {
             System.out.println("La bebida " + seleccionada.getNombre() + " cuesta " + seleccionada.getPrecio() + "€");
@@ -126,7 +131,7 @@ public class Interfaz {
         return false;
     }
 
-    public static boolean inicioSesion() {
+    private static boolean inicioSesion() {
         //Creamos un método de inicio de sesión, en el cual, si se cumplen las condiciones del método, devolverá true y por tanto, podremos administrar la cafetera
         Random r = new Random();
         Scanner lector = new Scanner(System.in);
