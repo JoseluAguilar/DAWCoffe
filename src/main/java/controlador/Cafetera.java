@@ -141,6 +141,7 @@ public class Cafetera {
                 agua.dispensarBebida();
                 chocolate.dispensarBebida();
                 totalChocolate++;
+                break;
             default:
                 throw new IllegalArgumentException("La bebida seleccionada no existe"); //Lanza una excepción para controlar
             //Que la bebida seleccionada no existe
