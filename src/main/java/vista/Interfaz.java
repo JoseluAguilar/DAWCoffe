@@ -32,23 +32,27 @@ public class Interfaz {
         Bebida seleccionada = null;
         cargarBebidas();
         do {
+            try {
+                System.out.print("Introduce la bebida que quieres tomar: ");
+                seleccion = lector.nextInt();
 
-            System.out.print("Introduce la bebida que quieres tomar: ");
-            seleccion = lector.nextInt();
+                if (seleccion == 99999) {
+                    inicioSesion(); //Esto devuelve un boolean, tenemos que hacer una comparación, y si devuelve true,
+                    //Si devuelve true, que se vaya a las opciones de administración, si no, que pida de nuevo la bebida
+                    consolaAdministrador();
+                    continue; //Esto provoca que cuando salga de la consola de administración, no saque por pantalla que la bebida no existe
+                }
+                //Preguntamos si el código de bebida existe. Si existe, lo devolverá para operar con él
+                //en el método main
+                if (existeEnArray(seleccion)) {
+                    existe = true;
+                } else {
+                    System.out.println("El número introducido no pertenece a ninguna bebida, por favor, introduce otro");
+                }
+            } catch (InputMismatchException ime) {
 
-            if (seleccion == 99999) {
-                inicioSesion(); //Esto devuelve un boolean, tenemos que hacer una comparación, y si devuelve true,
-                //Si devuelve true, que se vaya a las opciones de administración, si no, que pida de nuevo la bebida
-                consolaAdministrador();
-                continue; //Esto provoca que cuando salga de la consola de administración, no saque por pantalla que la bebida no existe
             }
-            //Preguntamos si el código de bebida existe. Si existe, lo devolverá para operar con él
-            //en el método main
-            if (existeEnArray(seleccion)) {
-                existe = true;
-            } else {
-                System.out.println("El número introducido no pertenece a ninguna bebida, por favor, introduce otro");
-            }
+
         } while (!(existe));
         switch (seleccion) {
             case 1001:
