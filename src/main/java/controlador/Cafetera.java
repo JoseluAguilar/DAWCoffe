@@ -16,6 +16,7 @@ public class Cafetera {
     private static Deposito leche = new Deposito(1003, "leche", 1000, 0, 100);
     private static Deposito agua = new Deposito(1004, "agua", 1000, 0, 100);
     private static Deposito chocolate = new Deposito(1005, "chocholate", 1000, 0, 100);
+    private static Deposito azucar = new Deposito(0, "azucar", 100);
 
     private static int totalCafe = 0;
     private static int totalCafeDescafeinado = 0;
