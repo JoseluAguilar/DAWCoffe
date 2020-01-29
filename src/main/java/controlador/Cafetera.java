@@ -5,6 +5,8 @@
  */
 package controlador;
 
+import vista.Interfaz;
+
 /**
  *
  * @author carlos
@@ -16,7 +18,7 @@ public class Cafetera {
     private static Deposito leche = new Deposito(1003, "leche", 1000, 0, 100);
     private static Deposito agua = new Deposito(1004, "agua", 1000, 0, 100);
     private static Deposito chocolate = new Deposito(1005, "chocholate", 1000, 0, 100);
-    private static Deposito azucar = new Deposito(0, "azucar", 100);
+    private static Deposito azucar = new Deposito(0, "azucar", 100, 0, 100);
 
     private static int totalCafe = 0;
     private static int totalCafeDescafeinado = 0;
@@ -86,9 +88,10 @@ public class Cafetera {
 
     }
 
-    public boolean compraBebida(double precio, Bebida bebida) {
+    public boolean compraBebida(double precio, Bebida bebida, int azucar) {
         if (precio >= bebida.getPrecio()) {
             this.dispensarBebida(bebida.getCodigo()); //Que dispense la bebida
+            this.dispensarAzucar(azucar);
             return true; //Si devuelve verdadero, entonces que no pregunte más y que se vaya al menú principal
         } else {
             return false; //Que siga preguntando hasta que, o el usuario meta el precio, o se salga
@@ -142,8 +145,13 @@ public class Cafetera {
                 throw new IllegalArgumentException("La bebida seleccionada no existe"); //Lanza una excepción para controlar
             //Que la bebida seleccionada no existe
         }
+        
     }
-
+    
+    public void dispensarAzucar(int seleccion){
+        //Dependiendo de la selección, se quita ese número de gramos
+        azucar.dispensarBebida(seleccion);
+    }
     //Métodos Get y Set
     public static Deposito getCafe() {
         return cafe;

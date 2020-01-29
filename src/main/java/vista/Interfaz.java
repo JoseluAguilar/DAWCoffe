@@ -24,7 +24,7 @@ public class Interfaz {
         //Este método, que tendremos que rellenar más adelante, lo usamos para preguntar la bebida a tomar
 
         Scanner lector = new Scanner(System.in);
-        int seleccion = 0;
+        int seleccion = 0, azucar = 0;
         boolean existe = false;
         double dinero = 0;
         Bebida seleccionada = null;
@@ -83,22 +83,36 @@ public class Interfaz {
                 break;
 
         }
+        azucar=azucar();
         do {
             System.out.println("La bebida " + seleccionada.getNombre() + " cuesta " + seleccionada.getPrecio() + "€");
             System.out.println("Has pagado " + dinero + "€ por ahora");
             System.out.print("Introduzca su dinero: ");
             dinero += lector.nextDouble();
-        } while (!(cafe.compraBebida(dinero, seleccionada)));
+        } while (!(cafe.compraBebida(dinero, seleccionada, azucar )));
 
         if (dinero > seleccionada.getPrecio()) {
             System.out.println("Tome sus " + (dinero - seleccionada.getPrecio()) + "€ de cambio");
         }
+        
         System.out.println("Preparando su " + seleccionada.getNombre() + "...");
         delay();
         System.out.println("¡Gracias por su compra! Vuelva pronto\n");
 
     }
+    public static int azucar(){
+        Scanner lector = new Scanner(System.in);
+        System.out.println("0. Sin azúcar");
+        System.out.println("1. Un poco de azúcar");
+        System.out.println("2. Mucho azúcar");
+        System.out.print("¿Cuánto azucar deseas en tu bebida?: ");
+        return lector.nextInt();
+    }
 
+    public static void consolaAdministrador(){
+        
+    }
+    
     public static void delay() {
         try {
             System.out.print("-*-");
