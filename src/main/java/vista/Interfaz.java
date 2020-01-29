@@ -7,6 +7,7 @@ package vista;
 
 import controlador.*;
 import java.util.InputMismatchException;
+import Administracion.*;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,6 +19,7 @@ public class Interfaz {
 
     private static Cafetera cafe = new Cafetera();
 
+    private static InterfazAdministrador admin = new InterfazAdministrador();
     private static int[] valoresBebida = new int[11];
 
     public static void menuRaiz() {
@@ -37,6 +39,7 @@ public class Interfaz {
             if (seleccion == 99999) {
                 inicioSesion(); //Esto devuelve un boolean, tenemos que hacer una comparación, y si devuelve true,
                 //Si devuelve true, que se vaya a las opciones de administración, si no, que pida de nuevo la bebida
+                consolaAdministrador();
                 continue; //Esto provoca que cuando salga de la consola de administración, no saque por pantalla que la bebida no existe
             }
             //Preguntamos si el código de bebida existe. Si existe, lo devolverá para operar con él
@@ -83,24 +86,25 @@ public class Interfaz {
                 break;
 
         }
-        cantidadAzucar=azucar();
+        cantidadAzucar = azucar();
         do {
             System.out.println("La bebida " + seleccionada.getNombre() + " cuesta " + seleccionada.getPrecio() + "€");
             System.out.println("Has pagado " + dinero + "€ por ahora");
             System.out.print("Introduzca su dinero: ");
             dinero += lector.nextDouble();
-        } while (!(cafe.compraBebida(dinero, seleccionada, cantidadAzucar )));
+        } while (!(cafe.compraBebida(dinero, seleccionada, cantidadAzucar)));
 
         if (dinero > seleccionada.getPrecio()) {
             System.out.println("Tome sus " + (dinero - seleccionada.getPrecio()) + "€ de cambio");
         }
-        
+
         System.out.println("Preparando su " + seleccionada.getNombre() + "...");
         delay();
         System.out.println("¡Gracias por su compra! Vuelva pronto\n");
 
     }
-    public static int azucar(){
+
+    public static int azucar() {
         Scanner lector = new Scanner(System.in);
         System.out.println("0. Sin azúcar");
         System.out.println("1. Un poco de azúcar");
@@ -109,10 +113,37 @@ public class Interfaz {
         return lector.nextInt();
     }
 
-    public static void consolaAdministrador(){
-        
+    public static void consolaAdministrador() {
+        Scanner lector = new Scanner(System.in);
+        int seleccion;
+        boolean salir = false;
+        do {
+            System.out.println("0. Apagar cafetera");
+            System.out.println("1. Rellenar depósitos");
+            System.out.println("2. Realizar labores de mantenimiento");
+            System.out.println("3. Salir");
+            System.out.print("ADMIN>");
+            seleccion = lector.nextInt();
+            switch (seleccion + 1) {
+                case 1:
+                    System.out.println("Apagando la cafetera");
+                    admin.apagar();
+                    break;
+                case 2:
+                    admin.rellenarTodosDepositos();
+                    System.out.println("Todos los depósitos rellenados con éxito");
+                    break;
+                case 3:
+                    System.out.println(admin.revisar());
+                    break;
+                case 4:
+                    System.out.println("Saliendo...");
+                    salir = true;
+                    break;
+            }
+        } while (!(salir));
     }
-    
+
     public static void delay() {
         try {
             System.out.print("-*-");
