@@ -19,6 +19,7 @@ public class InterfazAdministrador {
     private Deposito leche = Cafetera.getLeche();
     private Deposito agua = Cafetera.getAgua();
     private Deposito chocolate = Cafetera.getChocolate();
+    private Deposito azucar = Cafetera.getAzucar();
     
     private int contadorCafe = Cafetera.getTotalCafe();
     private int contadorCafeConLeche = Cafetera.getTotalCafeConLeche();
@@ -26,6 +27,7 @@ public class InterfazAdministrador {
     private int contadorCafeDescafeinadoConLeche = Cafetera.getTotalCafeDescafeinadoConLeche();
     private int contadorChocolate = Cafetera.getTotalChocolate();
     private int contadorLeche = Cafetera.getTotalLeche();
+    
     
     public String contadores(){
        
@@ -40,8 +42,27 @@ public class InterfazAdministrador {
     }
     
     
-    public void Apagar(){
+    public void apagar(){
         System.exit(0);
+    }
+    
+    public void rellenarTodosDepositos(){
+        cafe.rellenarCafetera();
+        cafeDescafeinado.rellenarCafetera();
+        leche.rellenarCafetera();
+        chocolate.rellenarCafetera();
+        agua.rellenarCafetera();
+        azucar.rellenarCafetera();
+    }
+    
+    public String revisar(){
+        return ("El estado actual de los despositos es : \n"
+                + "" + cafe.toString()+ "\n"
+                + "" + cafeDescafeinado.toString() + "\n"
+                + "" + leche.toString() + "\n"
+                + "" + chocolate.toString() + " \n"
+                + "" + agua.toString() + " \n"
+                + "" + azucar.toString());
     }
     
 }
