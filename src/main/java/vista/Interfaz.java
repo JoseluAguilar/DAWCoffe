@@ -33,15 +33,29 @@ public class Interfaz {
         cargarBebidas();
         try {
             do {
-
+                System.out.println("Hola bienvenido a la cafetera de Joselu y Carlos\n"
+                        + "El menú para bebida es:\n"
+                        + "1001 -- Leche fria - Precio: 0,5€\n"
+                        + "1002 -- Leche caliente - Precio: 0,5€\n"
+                        + "1003 -- Café solo - Precio: 0,8€\n"
+                        + "1004 -- Café solo descafeinado - Precio:0,8€\n"
+                        + "1005 -- Café solo largo - Precio: 0,9\n"
+                        + "1006 -- Café solo largo - Precio: 0,9\n"
+                        + "1007 -- Café con leche - Precio: 1,1€\n"
+                        + "1008 -- Café con leche descafeinado - Precio: 1,1€\n"
+                        + "1009 -- Café cortado - Precio: 1€\n"
+                        + "1010 -- Café cortado descafeinado - Precio: 1€\n"
+                        + "1011 -- Chocolate caliente - Precio: 1€");
                 System.out.print("Introduce la bebida que quieres tomar: ");
                 seleccion = lector.nextInt();
 
                 if (seleccion == 99999) {
-                    inicioSesion(); //Esto devuelve un boolean, tenemos que hacer una comparación, y si devuelve true,
+                    if(inicioSesion()){
+                    //Esto devuelve un boolean, tenemos que hacer una comparación, y si devuelve true,
                     //Si devuelve true, que se vaya a las opciones de administración, si no, que pida de nuevo la bebida
                     consolaAdministrador();
                     continue; //Esto provoca que cuando salga de la consola de administración, no saque por pantalla que la bebida no existe
+                    }
                 }
                 //Preguntamos si el código de bebida existe. Si existe, lo devolverá para operar con él
                 //en el método main
