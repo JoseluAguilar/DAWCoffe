@@ -50,11 +50,11 @@ public class Interfaz {
                 seleccion = lector.nextInt();
 
                 if (seleccion == 99999) {
-                    if(inicioSesion()){
-                    //Esto devuelve un boolean, tenemos que hacer una comparación, y si devuelve true,
-                    //Si devuelve true, que se vaya a las opciones de administración, si no, que pida de nuevo la bebida
-                    consolaAdministrador();
-                    continue; //Esto provoca que cuando salga de la consola de administración, no saque por pantalla que la bebida no existe
+                    if (inicioSesion()) {
+                        //Esto devuelve un boolean, tenemos que hacer una comparación, y si devuelve true,
+                        //Si devuelve true, que se vaya a las opciones de administración, si no, que pida de nuevo la bebida
+                        consolaAdministrador();
+                        continue; //Esto provoca que cuando salga de la consola de administración, no saque por pantalla que la bebida no existe
                     }
                 }
                 //Preguntamos si el código de bebida existe. Si existe, lo devolverá para operar con él
@@ -63,7 +63,7 @@ public class Interfaz {
                     existe = true;
                 } else {
                     System.out.println("El número introducido no pertenece a ninguna bebida, por favor, introduce otro");
-                    
+
                 }
 
             } while (!(existe));
@@ -107,7 +107,13 @@ public class Interfaz {
                 break;
 
         }
-        cantidadAzucar = azucar();
+
+        try {
+            cantidadAzucar = azucar();
+        } catch (InputMismatchException ime) {
+            System.out.println("La cantidad de azucar seleccionada no es la correcta");
+        }
+
         do {
             System.out.println("La bebida " + seleccionada.getNombre() + " cuesta " + seleccionada.getPrecio() + "€");
             System.out.println("Has pagado " + dinero + "€ por ahora");
@@ -126,19 +132,22 @@ public class Interfaz {
     }
 
     public static int azucar() {
-        Scanner lector = new Scanner(System.in);
         int seleccion = 0;
-        try {
-            System.out.println("0. Sin azúcar");
-            System.out.println("1. Un poco de azúcar");
-            System.out.println("2. Mucho azúcar");
-            System.out.print("¿Cuánto azucar deseas en tu bebida?: ");
-            return lector.nextInt();
-        } catch (InputMismatchException ime) {
-            System.out.println("Introduce una cantidad de azucar correcta");
-            azucar();
-        }
-        return 0;
+        do {
+            Scanner lector = new Scanner(System.in);
+
+            try {
+                System.out.println("0. Sin azúcar");
+                System.out.println("1. Un poco de azúcar");
+                System.out.println("2. Mucho azúcar");
+                System.out.print("¿Cuánto azucar deseas en tu bebida?: ");
+                return lector.nextInt();
+            } catch (InputMismatchException ime) {
+                System.out.println("Introduce una cantidad de azucar correcta");
+                azucar();
+            }
+            return 0;
+        } while (!(seleccion == 0 || seleccion == 1 || seleccion == 2 || seleccion == 3));
     }
 
     public static void consolaAdministrador() {
