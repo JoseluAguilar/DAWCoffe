@@ -20,9 +20,14 @@ public class Cafetera {
     private Deposito chocolate;
     private Deposito azucar;
 
-    private static int totalCafe = 0;
-    private static int totalCafeDescafeinado = 0;
     private static int totalLeche = 0;
+    private static int totalCafeSolo = 0;
+    private static int totalCafeSoloLargo = 0;
+    private static int totalCafeCortado = 0;
+    private static int totalCafeSoloDescafeinado = 0;
+    private static int totalCafeSoloLargoDescafeinado = 0;
+    private static int totalCafeCortadoDescafeinado = 0;
+    private static int totalCafeConLecheDescafeinado = 0;
     private static int totalChocolate = 0;
     private static int totalCafeConLeche = 0;
     private static int totalCafeDescafeinadoConLeche = 0;
@@ -47,7 +52,7 @@ public class Cafetera {
         }
     }
 
-    private void dispensarBebida(int codigo) {
+private void dispensarBebida(int codigo) {
         switch (codigo) {
             //Los Case son códigos que están en el enum de bebida
             case 1001:
@@ -63,14 +68,26 @@ public class Cafetera {
             case 1009:
                 agua.dispensarBebida();
                 cafe.dispensarBebida();
-                totalCafe++;
+                if (codigo == 1003) {
+                    totalCafeSolo++;
+                } else if (codigo == 1004) {
+                    totalCafeSoloDescafeinado++;
+                } else {
+                    totalCafeCortado++;
+                }
                 break;
             case 1004:
             case 1006:
             case 1010:
                 cafeDescafeinado.dispensarBebida();
                 agua.dispensarBebida();
-                totalCafeDescafeinado++;
+                if (codigo == 1004) {
+                    totalCafeSoloDescafeinado++;
+                } else if (codigo == 1006) {
+                    totalCafeSoloLargoDescafeinado++;
+                } else {
+                    totalCafeCortadoDescafeinado++;
+                }
                 break;
             case 1007:
                 agua.dispensarBebida();
@@ -104,6 +121,7 @@ public class Cafetera {
     }
 
     //Métodos Get y Set
+
     public Deposito getCafe() {
         return cafe;
     }
@@ -143,35 +161,83 @@ public class Cafetera {
     public void setChocolate(Deposito chocolate) {
         this.chocolate = chocolate;
     }
-        public static int getTotalCafe() {
-        return totalCafe;
+
+    public Deposito getAzucar() {
+        return azucar;
     }
 
-    public void setTotalCafe(int aTotalCafe) {
-        totalCafe = aTotalCafe;
+    public void setAzucar(Deposito azucar) {
+        this.azucar = azucar;
     }
-
-    public static int getTotalCafeDescafeinado() {
-        return totalCafeDescafeinado;
-    }
-
-    public void setTotalCafeDescafeinado(int aTotalCafeDescafeinado) {
-        totalCafeDescafeinado = aTotalCafeDescafeinado;
-    }
-
-    public static int getTotalLeche() {
+        public static int getTotalLeche() {
         return totalLeche;
     }
 
-    public void setTotalLeche(int aTotalLeche) {
+    public static void setTotalLeche(int aTotalLeche) {
         totalLeche = aTotalLeche;
+    }
+
+    public static int getTotalCafeSolo() {
+        return totalCafeSolo;
+    }
+
+    public static void setTotalCafeSolo(int aTotalCafeSolo) {
+        totalCafeSolo = aTotalCafeSolo;
+    }
+
+    public static int getTotalCafeSoloLargo() {
+        return totalCafeSoloLargo;
+    }
+
+    public static void setTotalCafeSoloLargo(int aTotalCafeSoloLargo) {
+        totalCafeSoloLargo = aTotalCafeSoloLargo;
+    }
+
+    public static int getTotalCafeCortado() {
+        return totalCafeCortado;
+    }
+
+    public static void setTotalCafeCortado(int aTotalCafeCortado) {
+        totalCafeCortado = aTotalCafeCortado;
+    }
+
+    public static int getTotalCafeSoloDescafeinado() {
+        return totalCafeSoloDescafeinado;
+    }
+
+    public static void setTotalCafeSoloDescafeinado(int aTotalCafeSoloDescafeinado) {
+        totalCafeSoloDescafeinado = aTotalCafeSoloDescafeinado;
+    }
+
+    public static int getTotalCafeSoloLargoDescafeinado() {
+        return totalCafeSoloLargoDescafeinado;
+    }
+
+    public static void setTotalCafeSoloLargoDescafeinado(int aTotalCafeSoloLargoDescafeinado) {
+        totalCafeSoloLargoDescafeinado = aTotalCafeSoloLargoDescafeinado;
+    }
+
+    public static int getTotalCafeCortadoDescafeinado() {
+        return totalCafeCortadoDescafeinado;
+    }
+
+    public static void setTotalCafeCortadoDescafeinado(int aTotalCafeCortadoDescafeinado) {
+        totalCafeCortadoDescafeinado = aTotalCafeCortadoDescafeinado;
+    }
+
+    public static int getTotalCafeConLecheDescafeinado() {
+        return totalCafeConLecheDescafeinado;
+    }
+
+    public static void setTotalCafeConLecheDescafeinado(int aTotalCafeConLecheDescafeinado) {
+        totalCafeConLecheDescafeinado = aTotalCafeConLecheDescafeinado;
     }
 
     public static int getTotalChocolate() {
         return totalChocolate;
     }
 
-    public void setTotalChocolate(int aTotalChocolate) {
+    public static void setTotalChocolate(int aTotalChocolate) {
         totalChocolate = aTotalChocolate;
     }
 
@@ -179,7 +245,7 @@ public class Cafetera {
         return totalCafeConLeche;
     }
 
-    public void setTotalCafeConLeche(int aTotalCafeConLeche) {
+    public static void setTotalCafeConLeche(int aTotalCafeConLeche) {
         totalCafeConLeche = aTotalCafeConLeche;
     }
 
@@ -187,16 +253,8 @@ public class Cafetera {
         return totalCafeDescafeinadoConLeche;
     }
 
-    public void setTotalCafeDescafeinadoConLeche(int aTotalCafeDescafeinadoConLeche) {
+    public static void setTotalCafeDescafeinadoConLeche(int aTotalCafeDescafeinadoConLeche) {
         totalCafeDescafeinadoConLeche = aTotalCafeDescafeinadoConLeche;
-    }
-
-    public Deposito getAzucar() {
-        return azucar;
-    }
-
-    public void setAzucar(Deposito aAzucar) {
-        azucar = aAzucar;
     }
     
 

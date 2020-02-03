@@ -14,22 +14,20 @@ import controlador.Cafetera;
 import controlador.Deposito;
 
 public class InterfazAdministrador {
-    private int contadorCafe = Cafetera.getTotalCafe();
-    private int contadorCafeConLeche = Cafetera.getTotalCafeConLeche();
-    private int contadorCafeDescafeinado = Cafetera.getTotalCafeDescafeinado();
-    private int contadorCafeDescafeinadoConLeche = Cafetera.getTotalCafeDescafeinadoConLeche();
-    private int contadorChocolate = Cafetera.getTotalChocolate();
-    private int contadorLeche = Cafetera.getTotalLeche();
-
+    
     public String contadores() {
 
         return ("Se han servido: \n"
-                + "" + contadorCafe + " cafés\n"
-                + "" + contadorCafeConLeche + " cafés con leche\n"
-                + "" + contadorCafeDescafeinado + " cafés descafeinados\n"
-                + "" + contadorCafeDescafeinadoConLeche + " cafés descafeinados con leche\n"
-                + "" + contadorLeche + " leches\n"
-                + "" + contadorChocolate + " chocolates");
+                + "" + Cafetera.getTotalCafeSolo() + " cafés solos\n"
+                + "" + Cafetera.getTotalCafeSoloDescafeinado() + " cafés solos descafeinados\n"
+                + "" + Cafetera.getTotalCafeConLeche() + " cafés con leche\n"
+                + "" + Cafetera.getTotalCafeConLecheDescafeinado() + " cafés con leche descafeinado\n"
+                + "" + Cafetera.getTotalCafeCortado() + " cafés cortados\n"
+                + "" + Cafetera.getTotalCafeCortadoDescafeinado()+ " cafés cortados descafeinados\n"
+                + "" + Cafetera.getTotalCafeCortado()+ " cafés solo largo\n"
+                + "" + Cafetera.getTotalCafeSoloLargoDescafeinado()+ " cafés solo largo descafeinado\n"
+                + "" + Cafetera.getTotalChocolate() + " chocolates\n"
+                + "" + Cafetera.getTotalLeche() + " leches\n");
     }
 
     public void apagar() {
@@ -56,7 +54,16 @@ public class InterfazAdministrador {
                 + "" + agua.toString() + " \n"
                 + "" + azucar.toString());
     }
-    public double ganancias(){
-        return ((contadorCafe * Bebida.CAFE_SOLO.getPrecio())+(contadorCafeConLeche * Bebida.CAFE_CON_LECHE.getPrecio())+(contadorCafeDescafeinado * Bebida.CAFE_SOLO_DES.getPrecio())+(contadorCafeDescafeinadoConLeche*Bebida.CAFE_CON_LECHE_DES.getPrecio())+(contadorChocolate * Bebida.CHOCOLATE.getPrecio())+(contadorLeche*Bebida.LECHE_CALIENTE.getPrecio()));
-    }
+        public String ganancias(){
+        //Variables auxiliares para comprender mejor el código;
+        double auxCafeSolo = (Cafetera.getTotalCafeSolo()+Cafetera.getTotalCafeSoloDescafeinado())*Bebida.CAFE_SOLO.getPrecio();
+        double auxCafeLeche = (Cafetera.getTotalCafeConLeche()+Cafetera.getTotalCafeConLecheDescafeinado()) * Bebida.CAFE_CON_LECHE.getPrecio();
+        double auxCafeCortado = (Cafetera.getTotalCafeCortado()+ Cafetera.getTotalCafeCortadoDescafeinado()) * Bebida.CORTADO.getPrecio();
+        double auxLeche = Cafetera.getTotalLeche() * Bebida.LECHE_FRIA.getPrecio();             
+        double auxChoco = Cafetera.getTotalChocolate() * Bebida.CHOCOLATE.getPrecio();
+        double auxCafeSoloLargo = (Cafetera.getTotalCafeCortado() + Cafetera.getTotalCafeCortadoDescafeinado()) * Bebida.CORTADO.getPrecio();
+        
+        double total = auxCafeSolo + auxCafeLeche + auxCafeCortado + auxLeche + auxChoco + auxCafeSoloLargo;
+        return String.format("%.2f", total) ; 
+}
 }
