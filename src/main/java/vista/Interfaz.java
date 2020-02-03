@@ -269,17 +269,17 @@ public class Interfaz {
 //        code = lector.nextInt();//Pedimos que el usuario introduzca un número, en este caso, que sea igual al código
 //        if (code == key) {
         Scanner teclado = new Scanner (System.in);
-        String name;
-        String password;
+        String name = "";
+        String password ="";
         
-        System.out.println("Digame el usuario");
+        System.out.print("Intoduce el usuario: ");
         name = teclado.nextLine();
         
-        System.out.println("Digame la contraseña");
+        System.out.print("Digame la contraseña: ");
         password = teclado.nextLine();
         
 
-        if (admin.getNombre() == name && admin.getContraseña() == password){
+        if (admin.getNombre().equals(name) && admin.getContrasenia().equals(password)){
             return true; //Si el código coincide, devolverá verdadero. Podremos continuar con el inicio de sesión
         } else {
             return false; //Si no, devolverá falso

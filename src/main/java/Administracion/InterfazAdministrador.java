@@ -18,11 +18,11 @@ public class InterfazAdministrador {
     
     
     private String nombre;
-    private String contraseña;
+    private String contrasenia;
     
     public InterfazAdministrador(String nombre, String contraseña) {
         this.nombre = nombre;
-        this.contraseña = contraseña;
+        this.contrasenia = contraseña;
     }
     
     public String contadores() {
@@ -85,11 +85,11 @@ public class InterfazAdministrador {
         this.nombre = nombre;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(String contraseña) {
+        this.contrasenia = contraseña;
     }
 }
