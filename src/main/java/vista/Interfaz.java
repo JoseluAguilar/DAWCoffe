@@ -16,13 +16,25 @@ import java.util.Scanner;
  * @author joselu
  */
 public class Interfaz {
+    
+    //Crea los depósitos
+    private Deposito cafeSolo = new Deposito(1001, "Café", 1000, 1000, 100);
+    private Deposito cafeDescafeinado = new Deposito(1002, "Café descafeinado", 1000, 1000, 100);
+    private Deposito leche = new Deposito(1003, "leche", 1000, 1000, 100);
+    private Deposito agua = new Deposito(1004, "agua", 1000, 1000, 100);
+    private Deposito chocolate = new Deposito(1005, "chocholate", 1000, 1000, 100);
+    private Deposito azucar = new Deposito(0, "azucar", 1000, 1000, 100);
 
-    private static Cafetera cafe = new Cafetera();
+    private Cafetera cafe = new Cafetera(cafeSolo, cafeDescafeinado, leche, agua, chocolate, azucar);
 
     private static InterfazAdministrador admin = new InterfazAdministrador();
     private static int[] valoresBebida = new int[11];
 
-    public static void menuRaiz() {
+    public Interfaz() {
+    }
+    
+    
+    public void menuRaiz() {
         //Este método, que tendremos que rellenar más adelante, lo usamos para preguntar la bebida a tomar
 
         Scanner lector = new Scanner(System.in);
@@ -55,8 +67,7 @@ public class Interfaz {
                         //Si devuelve true, que se vaya a las opciones de administración, si no, que pida de nuevo la bebida
                         consolaAdministrador();
                         continue; //Esto provoca que cuando salga de la consola de administración, no saque por pantalla que la bebida no existe
-                    }
-                    else{
+                    } else {
                         System.out.println("Las credenciales son incorrectas, inténtelo más tarde");
                         continue;
                     }
@@ -123,7 +134,7 @@ public class Interfaz {
             System.out.println("Has pagado " + dinero + "€ por ahora");
             System.out.print("Introduzca su dinero: ");
             dinero += lector.nextDouble();
-        } while (!(cafe.compraBebida(dinero, seleccionada, cantidadAzucar)));
+        } while(!(cafe.compraBebida(dinero, seleccionada, cantidadAzucar)));
 
         if (dinero > seleccionada.getPrecio()) {
             System.out.println("Tome sus " + (dinero - seleccionada.getPrecio()) + "€ de cambio");
@@ -138,25 +149,25 @@ public class Interfaz {
     public static int azucar() {
         int seleccion = 0;
 
-            Scanner lector = new Scanner(System.in);
-            int aux;
-            try {
-                do{
+        Scanner lector = new Scanner(System.in);
+        int aux;
+        try {
+            do {
                 System.out.println("0. Sin azúcar");
                 System.out.println("1. Un poco de azúcar");
                 System.out.println("2. Mucho azúcar");
                 System.out.print("¿Cuánto azucar deseas en tu bebida?: ");
                 aux = lector.nextInt();
-                if((aux<0 || aux>=3)){
+                if ((aux < 0 || aux >= 3)) {
                     System.out.println("Has introducido una cantidad de azúcar incorrecta");
                 }
-                }while((aux<0 || aux>=3));
-                return aux;
-            } catch (InputMismatchException ime) {
-                System.out.println("Introduce una número");
-                azucar();
-            }
-            return 0;
+            } while ((aux < 0 || aux >= 3));
+            return aux;
+        } catch (InputMismatchException ime) {
+            System.out.println("Introduce una número");
+            azucar();
+        }
+        return 0;
     }
 
     public static void consolaAdministrador() {
@@ -176,13 +187,16 @@ public class Interfaz {
                     admin.apagar();
                     break;
                 case 2:
-                    admin.rellenarTodosDepositos();
+                    //Rellenar todos
                     System.out.println("Todos los depósitos rellenados con éxito");
                     break;
                 case 3:
-                    System.out.println(admin.revisar());
+                    //Revisar
                     break;
                 case 4:
+                    
+                    break;
+                case 5:
                     System.out.println("Saliendo...");
                     salir = true;
                     break;

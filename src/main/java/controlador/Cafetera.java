@@ -13,12 +13,12 @@ import vista.Interfaz;
  */
 public class Cafetera {
 
-    private Deposito cafe = new Deposito(1001, "Café", 1000, 1000, 100);
-    private Deposito cafeDescafeinado = new Deposito(1002, "Café descafeinado", 1000, 1000, 100);
-    private Deposito leche = new Deposito(1003, "leche", 1000, 1000, 100);
-    private Deposito agua = new Deposito(1004, "agua", 1000, 1000, 100);
-    private Deposito chocolate = new Deposito(1005, "chocholate", 1000, 1000, 100);
-    private Deposito azucar = new Deposito(0, "azucar", 1000, 1000, 100);
+    private Deposito cafe;
+    private Deposito cafeDescafeinado;
+    private Deposito leche;
+    private Deposito agua;
+    private Deposito chocolate;
+    private Deposito azucar;
 
     private static int totalCafe = 0;
     private static int totalCafeDescafeinado = 0;
@@ -27,9 +27,14 @@ public class Cafetera {
     private static int totalCafeConLeche = 0;
     private static int totalCafeDescafeinadoConLeche = 0;
 
-    //Creamos constructor por defecto
-    public Cafetera() {
 
+    public Cafetera(Deposito cafeSolo, Deposito cafeDescafeinado, Deposito leche, Deposito agua, Deposito chocolate, Deposito azucar) {
+       this.cafe = cafeSolo;
+       this.cafeDescafeinado = cafeDescafeinado;
+       this.leche = leche;
+       this.agua = agua;
+       this.chocolate = chocolate;
+       this.azucar = azucar;
     }
 
     public boolean compraBebida(double precio, Bebida bebida, int azucar) {

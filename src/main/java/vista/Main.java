@@ -7,17 +7,13 @@ package vista;
 
 /**
  *
- * @author joselu
+ * @author carlos-pc
  */
-public class Programa {
-    //Según el modelo Vista / Con100programa. 
-
-    //Considerando esto, las clases programa e interfaz deben estar en un paquete vista, 
-    //mientras que el resto de clases, en un paquete controlador
+public class Main {
     public static void main(String[] args) {
+        Interfaz i = new Interfaz();
         while (true) {
-            Interfaz.menuRaiz();
+            i.menuRaiz();
         }
-
     }
 }
