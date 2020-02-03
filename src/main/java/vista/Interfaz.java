@@ -211,9 +211,9 @@ public class Interfaz {
 
     public static void delay() {
         try {
-            System.out.print("-*-");
+            System.out.print("-x-");
             for (int i = 8; i > 0; i--) {
-                System.out.print("*-");
+                System.out.print("x-");
                 Thread.sleep(1000);
             }
             System.out.println("");//Añade un salto de línea
