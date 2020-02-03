@@ -14,6 +14,16 @@ import controlador.Cafetera;
 import controlador.Deposito;
 
 public class InterfazAdministrador {
+
+    
+    
+    private String nombre;
+    private String contraseña;
+    
+    public InterfazAdministrador(String nombre, String contraseña) {
+        this.nombre = nombre;
+        this.contraseña = contraseña;
+    }
     
     public String contadores() {
 
@@ -66,4 +76,20 @@ public class InterfazAdministrador {
         double total = auxCafeSolo + auxCafeLeche + auxCafeCortado + auxLeche + auxChoco + auxCafeSoloLargo;
         return String.format("%.2f", total) ; 
 }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
 }
