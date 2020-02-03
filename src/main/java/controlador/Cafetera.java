@@ -13,12 +13,12 @@ import vista.Interfaz;
  */
 public class Cafetera {
 
-    private static Deposito cafe = new Deposito(1001, "Café", 1000, 1000, 100);
-    private static Deposito cafeDescafeinado = new Deposito(1002, "Café descafeinado", 1000, 1000, 100);
-    private static Deposito leche = new Deposito(1003, "leche", 1000, 1000, 100);
-    private static Deposito agua = new Deposito(1004, "agua", 1000, 1000, 100);
-    private static Deposito chocolate = new Deposito(1005, "chocholate", 1000, 1000, 100);
-    private static Deposito azucar = new Deposito(0, "azucar", 1000, 1000, 100);
+    private Deposito cafe = new Deposito(1001, "Café", 1000, 1000, 100);
+    private Deposito cafeDescafeinado = new Deposito(1002, "Café descafeinado", 1000, 1000, 100);
+    private Deposito leche = new Deposito(1003, "leche", 1000, 1000, 100);
+    private Deposito agua = new Deposito(1004, "agua", 1000, 1000, 100);
+    private Deposito chocolate = new Deposito(1005, "chocholate", 1000, 1000, 100);
+    private Deposito azucar = new Deposito(0, "azucar", 1000, 1000, 100);
 
     private static int totalCafe = 0;
     private static int totalCafeDescafeinado = 0;
@@ -26,62 +26,6 @@ public class Cafetera {
     private static int totalChocolate = 0;
     private static int totalCafeConLeche = 0;
     private static int totalCafeDescafeinadoConLeche = 0;
-
-    public static int getTotalCafe() {
-        return totalCafe;
-    }
-
-    public static void setTotalCafe(int aTotalCafe) {
-        totalCafe = aTotalCafe;
-    }
-
-    public static int getTotalCafeDescafeinado() {
-        return totalCafeDescafeinado;
-    }
-
-    public static void setTotalCafeDescafeinado(int aTotalCafeDescafeinado) {
-        totalCafeDescafeinado = aTotalCafeDescafeinado;
-    }
-
-    public static int getTotalLeche() {
-        return totalLeche;
-    }
-
-    public static void setTotalLeche(int aTotalLeche) {
-        totalLeche = aTotalLeche;
-    }
-
-    public static int getTotalChocolate() {
-        return totalChocolate;
-    }
-
-    public static void setTotalChocolate(int aTotalChocolate) {
-        totalChocolate = aTotalChocolate;
-    }
-
-    public static int getTotalCafeConLeche() {
-        return totalCafeConLeche;
-    }
-
-    public static void setTotalCafeConLeche(int aTotalCafeConLeche) {
-        totalCafeConLeche = aTotalCafeConLeche;
-    }
-
-    public static int getTotalCafeDescafeinadoConLeche() {
-        return totalCafeDescafeinadoConLeche;
-    }
-
-    public static void setTotalCafeDescafeinadoConLeche(int aTotalCafeDescafeinadoConLeche) {
-        totalCafeDescafeinadoConLeche = aTotalCafeDescafeinadoConLeche;
-    }
-
-    public static Deposito getAzucar() {
-        return azucar;
-    }
-
-    public static void setAzucar(Deposito aAzucar) {
-        azucar = aAzucar;
-    }
 
     //Creamos constructor por defecto
     public Cafetera() {
@@ -155,7 +99,7 @@ public class Cafetera {
     }
 
     //Métodos Get y Set
-    public static Deposito getCafe() {
+    public Deposito getCafe() {
         return cafe;
     }
 
@@ -163,7 +107,7 @@ public class Cafetera {
         this.cafe = cafe;
     }
 
-    public static Deposito getCafeDescafeinado() {
+    public Deposito getCafeDescafeinado() {
         return cafeDescafeinado;
     }
 
@@ -171,7 +115,7 @@ public class Cafetera {
         this.cafeDescafeinado = cafeDescafeinado;
     }
 
-    public static Deposito getLeche() {
+    public Deposito getLeche() {
         return leche;
     }
 
@@ -179,7 +123,7 @@ public class Cafetera {
         this.leche = leche;
     }
 
-    public static Deposito getAgua() {
+    public Deposito getAgua() {
         return agua;
     }
 
@@ -187,12 +131,68 @@ public class Cafetera {
         this.agua = agua;
     }
 
-    public static Deposito getChocolate() {
+    public Deposito getChocolate() {
         return chocolate;
     }
 
     public void setChocolate(Deposito chocolate) {
         this.chocolate = chocolate;
     }
+        public static int getTotalCafe() {
+        return totalCafe;
+    }
+
+    public void setTotalCafe(int aTotalCafe) {
+        totalCafe = aTotalCafe;
+    }
+
+    public static int getTotalCafeDescafeinado() {
+        return totalCafeDescafeinado;
+    }
+
+    public void setTotalCafeDescafeinado(int aTotalCafeDescafeinado) {
+        totalCafeDescafeinado = aTotalCafeDescafeinado;
+    }
+
+    public static int getTotalLeche() {
+        return totalLeche;
+    }
+
+    public void setTotalLeche(int aTotalLeche) {
+        totalLeche = aTotalLeche;
+    }
+
+    public static int getTotalChocolate() {
+        return totalChocolate;
+    }
+
+    public void setTotalChocolate(int aTotalChocolate) {
+        totalChocolate = aTotalChocolate;
+    }
+
+    public static int getTotalCafeConLeche() {
+        return totalCafeConLeche;
+    }
+
+    public void setTotalCafeConLeche(int aTotalCafeConLeche) {
+        totalCafeConLeche = aTotalCafeConLeche;
+    }
+
+    public static int getTotalCafeDescafeinadoConLeche() {
+        return totalCafeDescafeinadoConLeche;
+    }
+
+    public void setTotalCafeDescafeinadoConLeche(int aTotalCafeDescafeinadoConLeche) {
+        totalCafeDescafeinadoConLeche = aTotalCafeDescafeinadoConLeche;
+    }
+
+    public Deposito getAzucar() {
+        return azucar;
+    }
+
+    public void setAzucar(Deposito aAzucar) {
+        azucar = aAzucar;
+    }
+    
 
 }
