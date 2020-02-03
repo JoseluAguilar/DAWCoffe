@@ -56,6 +56,10 @@ public class Interfaz {
                         consolaAdministrador();
                         continue; //Esto provoca que cuando salga de la consola de administración, no saque por pantalla que la bebida no existe
                     }
+                    else{
+                        System.out.println("Las credenciales son incorrectas, inténtelo más tarde");
+                        continue;
+                    }
                 }
                 //Preguntamos si el código de bebida existe. Si existe, lo devolverá para operar con él
                 //en el método main
@@ -223,7 +227,7 @@ public class Interfaz {
         System.out.print("Introduzca el pendrive de administrador, e introduzca el código que verá a continuación: ");
         key = r.nextInt(9999) + 1;//Generamos un código
         System.out.printf("%04d", key); //Mostramos el código
-        System.out.print("\n>");
+        System.out.print("\nusr>");
         code = lector.nextInt();//Pedimos que el usuario introduzca un número, en este caso, que sea igual al código
         if (code == key) {
             return true; //Si el código coincide, devolverá verdadero. Podremos continuar con el inicio de sesión
