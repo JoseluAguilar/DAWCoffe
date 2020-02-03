@@ -137,7 +137,7 @@ public class Interfaz {
 
     public static int azucar() {
         int seleccion = 0;
-        do {
+
             Scanner lector = new Scanner(System.in);
             int aux;
             try {
@@ -157,7 +157,6 @@ public class Interfaz {
                 azucar();
             }
             return 0;
-        } while (!(seleccion == 0 || seleccion == 1 || seleccion == 2 || seleccion == 3));
     }
 
     public static void consolaAdministrador() {
