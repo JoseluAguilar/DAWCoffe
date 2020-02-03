@@ -28,6 +28,11 @@ public class Interfaz {
     private Cafetera cafe = new Cafetera(cafeSolo, cafeDescafeinado, leche, agua, chocolate, azucar);
 
     private static InterfazAdministrador admin = new InterfazAdministrador("admin", "admin");
+    private static InterfazAdministrador vico = new InterfazAdministrador("vico", "vico");
+    private static InterfazAdministrador kali = new InterfazAdministrador("kali", "kali");
+    private static InterfazAdministrador joselu = new InterfazAdministrador("joselu", "joselu");
+    private static InterfazAdministrador carlos = new InterfazAdministrador("carlos", "carlos");
+    
     private static int[] valoresBebida = new int[11];
 
     public Interfaz() {
@@ -256,18 +261,7 @@ public class Interfaz {
     }
 
     private boolean inicioSesion() {
-        //Creamos un método de inicio de sesión, en el cual, si se cumplen las condiciones del método, devolverá true y por tanto, podremos administrar la cafetera
-//        Random r = new Random();
-//        Scanner lector = new Scanner(System.in);
-//        int key;
-//        int code;
-//        System.out.println("Bienvenido a la consola de administración.");
-//        System.out.print("Introduzca el pendrive de administrador, e introduzca el código que verá a continuación: ");
-//        key = r.nextInt(9999) + 1;//Generamos un código
-//        System.out.printf("%04d", key); //Mostramos el código
-//        System.out.print("\nusr>");
-//        code = lector.nextInt();//Pedimos que el usuario introduzca un número, en este caso, que sea igual al código
-//        if (code == key) {
+        //Aquí en el inicio de sesión buscamos que el Administrador que hemos creado se loguee sin problemas
         Scanner teclado = new Scanner (System.in);
         String name = "";
         String password ="";
@@ -279,7 +273,8 @@ public class Interfaz {
         password = teclado.nextLine();
         
 
-        if (admin.getNombre().equals(name) && admin.getContrasenia().equals(password)){
+        if (admin.getNombre().equals(name) && admin.getContrasenia().equals(password) || carlos.getNombre().equals(name) && carlos.getContrasenia().equals(password) || joselu.getNombre().equals(name) && joselu.getContrasenia().equals(password) || vico.getNombre().equals(name) && vico.getContrasenia().equals(password) || kali.getNombre().equals(name) && kali.getContrasenia().equals(password)){
+            System.out.println("Bienvendido "+ name);
             return true; //Si el código coincide, devolverá verdadero. Podremos continuar con el inicio de sesión
         } else {
             return false; //Si no, devolverá falso
