@@ -139,15 +139,21 @@ public class Interfaz {
         int seleccion = 0;
         do {
             Scanner lector = new Scanner(System.in);
-
+            int aux;
             try {
+                do{
                 System.out.println("0. Sin azúcar");
                 System.out.println("1. Un poco de azúcar");
                 System.out.println("2. Mucho azúcar");
                 System.out.print("¿Cuánto azucar deseas en tu bebida?: ");
-                return lector.nextInt();
+                aux = lector.nextInt();
+                if((aux<0 || aux>=3)){
+                    System.out.println("Has introducido una cantidad de azúcar incorrecta");
+                }
+                }while((aux<0 || aux>=3));
+                return aux;
             } catch (InputMismatchException ime) {
-                System.out.println("Introduce una cantidad de azucar correcta");
+                System.out.println("Introduce una número");
                 azucar();
             }
             return 0;
