@@ -36,8 +36,15 @@ public class InterfazAdministrador {
         System.exit(0);
     }
 
-    public void rellenarTodosDepositos(Deposito dep) {
+    public void rellenarDeposito(Deposito dep) {
         dep.rellenarCafetera();
+    }
+    public String comprobarEstado(Deposito dep){
+        if(dep.getCapacidadActual()<=dep.getCapacidadAviso()){
+            return "Por favor, rellene el depósito " + dep.getContenidoDeposito();
+        }else{
+            return "El depósito " + dep.getContenidoDeposito() + " parece estar en buenas condiciones";
+        }
     }
 
     public String revisar(Deposito cafe, Deposito descafeinado, Deposito leche, Deposito chocolate, Deposito agua, Deposito azucar) {
@@ -52,5 +59,4 @@ public class InterfazAdministrador {
     public double ganancias(){
         return ((contadorCafe * Bebida.CAFE_SOLO.getPrecio())+(contadorCafeConLeche * Bebida.CAFE_CON_LECHE.getPrecio())+(contadorCafeDescafeinado * Bebida.CAFE_SOLO_DES.getPrecio())+(contadorCafeDescafeinadoConLeche*Bebida.CAFE_CON_LECHE_DES.getPrecio())+(contadorChocolate * Bebida.CHOCOLATE.getPrecio())+(contadorLeche*Bebida.LECHE_CALIENTE.getPrecio()));
     }
-
 }

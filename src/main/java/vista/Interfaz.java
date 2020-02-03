@@ -170,7 +170,7 @@ public class Interfaz {
         return 0;
     }
 
-    public static void consolaAdministrador() {
+    public void consolaAdministrador() {
         Scanner lector = new Scanner(System.in);
         int seleccion;
         boolean salir = false;
@@ -189,17 +189,27 @@ public class Interfaz {
                     admin.apagar();
                     break;
                 case 2:
-                    //Rellenar todos
+                    admin.rellenarDeposito(cafeSolo);
+                    admin.rellenarDeposito(leche);
+                    admin.rellenarDeposito(cafeDescafeinado);
+                    admin.rellenarDeposito(agua);
+                    admin.rellenarDeposito(azucar);
+                    admin.rellenarDeposito(chocolate);
                     System.out.println("Todos los depósitos rellenados con éxito");
                     break;
                 case 3:
-                    //Revisar
+                    admin.revisar(cafeSolo, cafeDescafeinado, leche, chocolate, agua, azucar);
                     break;
                 case 4:
-                    //Ver los warnings
+                    System.out.println(admin.comprobarEstado(cafeSolo));
+                    System.out.println(admin.comprobarEstado(cafeDescafeinado));
+                    System.out.println(admin.comprobarEstado(leche));
+                    System.out.println(admin.comprobarEstado(chocolate));
+                    System.out.println(admin.comprobarEstado(agua));
+                    System.out.println(admin.comprobarEstado(azucar));
                     break;
                 case 5:
-                    //Ver lo recaudado 
+                    System.out.println("Se han recaudado " + admin.ganancias()+ "€");
                     break;
                 case 6:
                     System.out.println("Saliendo...");
@@ -209,7 +219,7 @@ public class Interfaz {
         } while (!(salir));
     }
 
-    public static void delay() {
+    public void delay() {
         try {
             System.out.print("-x-");
             for (int i = 8; i > 0; i--) {
@@ -222,7 +232,7 @@ public class Interfaz {
         }
     }
 
-    public static void cargarBebidas() {
+    public void cargarBebidas() {
         //Creamos este método para cargar los códigos de bebidas en un array
         int codBebida = 1000;
         for (int i = 0; i < valoresBebida.length; i++) {
@@ -231,7 +241,7 @@ public class Interfaz {
         }
     }
 
-    public static boolean existeEnArray(int num) {
+    public boolean existeEnArray(int num) {
         //Este método busca y pregunta si un valor existe o no en un array
         for (int i = 0; i < valoresBebida.length; i++) {
             if (num == valoresBebida[i]) {
@@ -241,7 +251,7 @@ public class Interfaz {
         return false;
     }
 
-    private static boolean inicioSesion() {
+    private boolean inicioSesion() {
         //Creamos un método de inicio de sesión, en el cual, si se cumplen las condiciones del método, devolverá true y por tanto, podremos administrar la cafetera
         Random r = new Random();
         Scanner lector = new Scanner(System.in);
