@@ -180,7 +180,8 @@ public class Interfaz {
             System.out.println("2. Realizar labores de mantenimiento");
             System.out.println("3. Revisar si existen depósitos en reserva");
             System.out.println("4. Ver la cantidad de dinero recaudada");
-            System.out.println("5. Salir");
+            System.out.println("5. Ver los contadores de las bebidas");
+            System.out.println("6. Salir");
             System.out.print("ADMIN>");
             seleccion = lector.nextInt();
             switch (seleccion + 1) {
@@ -212,6 +213,9 @@ public class Interfaz {
                     System.out.println("Se han recaudado " + admin.ganancias()+ "€");
                     break;
                 case 6:
+                    System.out.println(admin.contadores());
+                    break;
+                case 7:
                     System.out.println("Saliendo...");
                     salir = true;
                     break;
