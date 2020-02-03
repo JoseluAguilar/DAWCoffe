@@ -178,7 +178,9 @@ public class Interfaz {
             System.out.println("0. Apagar cafetera");
             System.out.println("1. Rellenar depósitos");
             System.out.println("2. Realizar labores de mantenimiento");
-            System.out.println("3. Salir");
+            System.out.println("3. Revisar si existen depósitos en reserva");
+            System.out.println("4. Ver la cantidad de dinero recaudada");
+            System.out.println("5. Salir");
             System.out.print("ADMIN>");
             seleccion = lector.nextInt();
             switch (seleccion + 1) {
@@ -194,9 +196,12 @@ public class Interfaz {
                     //Revisar
                     break;
                 case 4:
-                    
+                    //Ver los warnings
                     break;
                 case 5:
+                    //Ver lo recaudado 
+                    break;
+                case 6:
                     System.out.println("Saliendo...");
                     salir = true;
                     break;
