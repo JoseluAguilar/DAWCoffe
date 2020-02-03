@@ -8,7 +8,6 @@ package vista;
 import controlador.*;
 import java.util.InputMismatchException;
 import Administracion.*;
-import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -142,7 +141,7 @@ public class Interfaz {
         } while(!(cafe.compraBebida(dinero, seleccionada, cantidadAzucar)));
 
         if (dinero > seleccionada.getPrecio()) {
-            System.out.println("Tome sus " + (dinero - seleccionada.getPrecio()) + "€ de cambio");
+            System.out.println("Tome sus " + String.format("%.2f", dinero - seleccionada.getPrecio()) + "€ de cambio");
         }
 
         System.out.println("Preparando su " + seleccionada.getNombre() + "...");
