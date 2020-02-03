@@ -117,6 +117,10 @@ public class Deposito {
     //Método toString
     @Override
     public String toString() {
+        if(this.capacidadActual <= this.capacidadAviso){
+            return ("El depósito con identificador " + this.codDeposito + ", que contiene " + this.contenidoDeposito + ", con capacidad máxima "
+                + this.capacidadMaxima + ", dispone de " + this.capacidadActual + "g de " + this.contenidoDeposito+ "\nRellene el depósito");
+        }
         return ("El depósito con identificador " + this.codDeposito + ", que contiene " + this.contenidoDeposito + ", con capacidad máxima "
                 + this.capacidadMaxima + ", dispone de " + this.capacidadActual + "g de " + this.contenidoDeposito);
     }
