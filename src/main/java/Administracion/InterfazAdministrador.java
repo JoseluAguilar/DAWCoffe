@@ -9,19 +9,11 @@ package Administracion;
  *
  * @author carlos
  */
+import controlador.Bebida;
 import controlador.Cafetera;
 import controlador.Deposito;
 
 public class InterfazAdministrador {
-
-    //Aquí vamos a hacer unos cuanto métodos que necesitamos de Administrador
-    private Deposito cafe = Cafetera.getCafe();
-    private Deposito cafeDescafeinado = Cafetera.getCafeDescafeinado();
-    private Deposito leche = Cafetera.getLeche();
-    private Deposito agua = Cafetera.getAgua();
-    private Deposito chocolate = Cafetera.getChocolate();
-    private Deposito azucar = Cafetera.getAzucar();
-
     private int contadorCafe = Cafetera.getTotalCafe();
     private int contadorCafeConLeche = Cafetera.getTotalCafeConLeche();
     private int contadorCafeDescafeinado = Cafetera.getTotalCafeDescafeinado();
@@ -44,23 +36,21 @@ public class InterfazAdministrador {
         System.exit(0);
     }
 
-    public void rellenarTodosDepositos() {
-        cafe.rellenarCafetera();
-        cafeDescafeinado.rellenarCafetera();
-        leche.rellenarCafetera();
-        chocolate.rellenarCafetera();
-        agua.rellenarCafetera();
-        azucar.rellenarCafetera();
+    public void rellenarTodosDepositos(Deposito dep) {
+        dep.rellenarCafetera();
     }
 
-    public String revisar() {
+    public String revisar(Deposito cafe, Deposito descafeinado, Deposito leche, Deposito chocolate, Deposito agua, Deposito azucar) {
         return ("El estado actual de los despositos es : \n"
                 + "" + cafe.toString() + "\n"
-                + "" + cafeDescafeinado.toString() + "\n"
+                + "" + descafeinado.toString() + "\n"
                 + "" + leche.toString() + "\n"
                 + "" + chocolate.toString() + " \n"
                 + "" + agua.toString() + " \n"
                 + "" + azucar.toString());
+    }
+    public double ganancias(){
+        return ((contadorCafe * Bebida.CAFE_SOLO.getPrecio())+(contadorCafeConLeche * Bebida.CAFE_CON_LECHE.getPrecio())+(contadorCafeDescafeinado * Bebida.CAFE_SOLO_DES.getPrecio())+(contadorCafeDescafeinadoConLeche*Bebida.CAFE_CON_LECHE_DES.getPrecio())+(contadorChocolate * Bebida.CHOCOLATE.getPrecio())+(contadorLeche*Bebida.LECHE_CALIENTE.getPrecio()));
     }
 
 }
